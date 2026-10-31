@@ -191,23 +191,40 @@ img{max-width:100%;display:block}
 .a .r{text-align:right;font:800 11px var(--body);letter-spacing:.1em;color:var(--gold);white-space:nowrap}
 .a .r small{display:block;color:#79828c;font-weight:700;letter-spacing:.06em}
 
-/* ================= 6. VOICE (pixel monster-battle text boxes) ================= */
-#voice{background:#d8f0d0;color:#1b1b1b;font-family:'Press Start 2P',monospace}
-#voice::before{content:"";position:absolute;inset:0;background:linear-gradient(#cfe8c6 2px,transparent 2px) 0 0/100% 8px;opacity:.6;pointer-events:none}
-#voice .tag{color:#fff;font-family:var(--display)}
-.arena{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start}
-.arena .photo{aspect-ratio:1/1;border:4px solid #1b1b1b;border-radius:0;background:#b9dcae;color:#1b1b1b;font-family:'Press Start 2P',monospace;font-size:9px;line-height:1.8;image-rendering:pixelated}
-.arena .photo b{font-size:10px;color:#1b1b1b}
-.box{background:#fff;border:4px solid #1b1b1b;border-radius:10px;box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 7px #4a8fd6;padding:22px 26px;margin-bottom:16px;position:relative;font-size:12px;line-height:2}
-.box .who2{color:#c4141f}
-.box .eff{display:block;margin-top:8px;color:#2a6a2a}
-.box .body{font-family:var(--body);font-size:15px;line-height:1.55;display:block;margin-top:10px;color:#222}
-.box::after{content:"▼";position:absolute;right:16px;bottom:10px;font-size:10px;color:#c4141f;animation:blink 1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-.hpcard{background:#fff;border:4px solid #1b1b1b;border-radius:0 18px 0 18px;padding:14px 16px;font-size:10px;line-height:1.8;margin-top:14px}
-.hpcard .row{display:flex;justify-content:space-between}
-.hpcard .hp{height:8px;border:2px solid #1b1b1b;margin:6px 0;background:#eee}
-.hpcard .hp i{display:block;height:100%;width:100%;background:#3fbf4a}
+/* party: battle log (speaking) */
+.battle{display:grid;grid-template-columns:1fr 320px;gap:18px;margin-top:34px;align-items:start}
+.battle h3{grid-column:1/-1;font-family:var(--display);font-size:34px;text-transform:uppercase;letter-spacing:.02em;display:flex;align-items:center;gap:14px}
+.battle h3::after{content:"";flex:1;height:3px;background:#dfe6ff;opacity:.5}
+.blog{display:grid;gap:10px}
+.blog .win{padding:14px 18px}
+.blog .act{font:800 13px var(--body);letter-spacing:.08em;text-transform:uppercase;color:#ffe27a}
+.blog .act b{color:#fff}
+.blog p{font-size:14.5px;color:#e8ecff;margin-top:4px}
+.battle .photo{aspect-ratio:1/1;border:3px solid #dfe6ff;border-radius:10px}
+
+/* ================= 6c. SERVICE (cozy life-sim community board) ================= */
+#service{background:#3f7d3a;color:#2b1d10}
+#service::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(circle at 20% 30%,rgba(255,255,255,.07) 0 2px,transparent 3px) 0 0/38px 38px,
+  radial-gradient(circle at 70% 80%,rgba(0,0,0,.08) 0 2px,transparent 3px) 0 0/46px 46px;pointer-events:none}
+#service .tag{color:#fff6dc}
+#service .tag .bg{background:#6b4423}
+#service .tag .sub{color:#ffd86b}
+.board{background:linear-gradient(90deg,#8a5a2b,#9b6835 50%,#8a5a2b);border:10px solid #5c3a1a;border-radius:8px;box-shadow:inset 0 0 0 3px #b07a40,0 18px 36px rgba(0,0,0,.35);padding:30px 26px 34px;position:relative}
+.board::before{content:"COMMUNITY BOARD";position:absolute;top:-26px;left:50%;transform:translateX(-50%);background:#5c3a1a;color:#ffd86b;font:12px 'Press Start 2P',monospace;padding:12px 18px;border-radius:6px;white-space:nowrap}
+.notes{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.note{background:#fff6dc;padding:22px 20px 18px;position:relative;box-shadow:3px 5px 0 rgba(0,0,0,.25);transform:rotate(var(--t,0deg));transition:transform .15s}
+.note:hover{transform:rotate(0) translateY(-4px)}
+.note::before{content:"";position:absolute;top:-8px;left:50%;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ff8a8a,#c4141f);box-shadow:1px 2px 0 rgba(0,0,0,.3)}
+.note .req{font:9px/1.6 'Press Start 2P',monospace;color:#6b4423;text-transform:uppercase}
+.note h4{font:800 19px/1.2 var(--body);margin:6px 0 6px;color:#2b1d10}
+.note p{font-size:14px;color:#3d2c1a}
+.hearts{margin-top:10px;font-size:15px;letter-spacing:2px;color:#e2384d}
+.hearts span{color:#cdbb98}
+.note .rw{margin-top:8px;font:9px/1.6 'Press Start 2P',monospace;color:#3f7d3a}
+.svc-row{display:grid;grid-template-columns:1fr 300px;gap:26px;align-items:start}
+.svc-row .photo{aspect-ratio:3/4;border:6px solid #5c3a1a;background:#2f5e2b;color:#e6f3d8}
+@media (max-width:960px){.battle,.svc-row{grid-template-columns:1fr}.battle .photo,.svc-row .photo{max-width:340px}}
 
 /* ================= 6b. MEDIA (comic-book hero) ================= */
 #media{background:#ffe14d;color:#111;overflow:hidden}
@@ -250,7 +267,7 @@ img{max-width:100%;display:block}
 .hs td{padding:4px 8px;border-top:1px dashed rgba(56,209,196,.3)}
 .hs td:last-child{color:var(--gold);text-align:right}
 .hs tr:first-child td{color:#fff}
-.cab .photo{aspect-ratio:3/4;border:3px solid #ff2bd6;box-shadow:0 0 22px rgba(255,43,214,.35);background:#120526;color:#e9a8ff;font-family:'VT323',monospace;font-size:20px;letter-spacing:.06em}
+.cab .photo{aspect-ratio:720/636;border:3px solid #ff2bd6;box-shadow:0 0 22px rgba(255,43,214,.35);background:#120526;color:#e9a8ff;font-family:'VT323',monospace;font-size:20px;letter-spacing:.06em}
 .cab .photo b{font-size:22px}
 .insert{text-align:center;font-size:28px;color:var(--gold);margin-top:18px;animation:blink 1.2s steps(1) infinite}
 
@@ -334,13 +351,13 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
 
   <div class="stage">
     <div class="hero-photo" aria-hidden="true">
-      <figure class="photo ph on has" data-for="default"><img src="img/leadership-wheel.jpg" alt="" fetchpriority="high" decoding="async"></figure>
+      <figure class="photo ph on has" data-for="default"><img src="img/track.jpg" alt="" fetchpriority="high" decoding="async"></figure>
       <figure class="photo ph" data-for="status"><div><b>Photo · Status</b>Clean headshot</div></figure>
       <figure class="photo ph" data-for="quests"><div><b>Photo · Quests</b>At St. Jude or a laptop</div></figure>
       <figure class="photo ph has" data-for="party"><img src="img/leadership-wheel.jpg" alt="" loading="lazy" decoding="async"></figure>
       <figure class="photo ph" data-for="trophies"><div><b>Photo · Trophies</b>Holding an award or medal</div></figure>
-      <figure class="photo ph has" data-for="voice"><img src="img/speaking-wheel.jpg" alt="" loading="lazy" decoding="async"></figure>
-      <figure class="photo ph" data-for="records"><div><b>Photo · Records</b>Mid-race</div></figure>
+      <figure class="photo ph" data-for="service"><div><b>Photo · Service</b>Food distribution, HOBY, or STEMsters</div></figure>
+      <figure class="photo ph has" data-for="records"><img src="img/track.jpg" alt="" loading="lazy" decoding="async"></figure>
       <figure class="photo ph has" data-for="media"><img src="img/media-wheel.jpg" alt="" loading="lazy" decoding="async"></figure>
       <figure class="photo ph" data-for="contact"><div><b>Photo · Calling card</b>Fun or casual shot</div></figure>
     </div>
@@ -349,10 +366,10 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
       <ul class="ring">
         <li><a class="cmd" href="#status"   data-k="status"   data-t="Status"       data-s="ACT 35 · 14 APs · Cum Laude · stats and abilities" style="--x:22%;--y:18%;--r:-7deg"><span class="key">1</span><span class="w"><b>S</b>tatus</span><small>Stats &amp; skills</small></a></li>
         <li><a class="cmd" href="#quests"   data-k="quests"   data-t="Quests"       data-s="NeuroVox · St. Jude · Synthesis" style="--x:13%;--y:40%;--r:4deg"><span class="key">2</span><span class="w"><b>Q</b>uests</span><small>Research &amp; builds</small></a></li>
-        <li><a class="cmd" href="#party"    data-k="party"    data-t="Party"        data-s="BRIDGES · TJCL · Youth in Government · DECA" style="--x:13%;--y:62%;--r:-4deg"><span class="key">3</span><span class="w"><b>P</b>arty</span><small>Leadership</small></a></li>
+        <li><a class="cmd" href="#party"    data-k="party"    data-t="Party"        data-s="Leadership &amp; speaking: BRIDGES · TJCL · Youth in Government" style="--x:13%;--y:62%;--r:-4deg"><span class="key">3</span><span class="w"><b>P</b>arty</span><small>Leadership &amp; voice</small></a></li>
         <li><a class="cmd" href="#trophies" data-k="trophies" data-t="Trophies"     data-s="Coolidge Senator · USSYP Alternate · 4× NLE Gold" style="--x:22%;--y:84%;--r:5deg"><span class="key">4</span><span class="w"><b>T</b>rophies</span><small>Awards</small></a></li>
-        <li><a class="cmd" href="#voice"    data-k="voice"    data-t="Voice"        data-s="Floor Leader · chapel program · town halls" style="--x:78%;--y:18%;--r:6deg"><span class="key">5</span><span class="w"><b>V</b>oice</span><small>Speaking</small></a></li>
-        <li><a class="cmd" href="#media"    data-k="media"    data-t="Media"        data-s="DECA National Content Creator · 1M+ views" style="--x:87%;--y:40%;--r:-4deg"><span class="key">6</span><span class="w"><b>M</b>edia</span><small>Content &amp; storytelling</small></a></li>
+        <li><a class="cmd" href="#media"    data-k="media"    data-t="Media"        data-s="DECA National Content Creator · 1M+ views" style="--x:78%;--y:18%;--r:6deg"><span class="key">5</span><span class="w"><b>M</b>edia</span><small>Content &amp; storytelling</small></a></li>
+        <li><a class="cmd" href="#service"  data-k="service"  data-t="Service"      data-s="Civic Service · HOBY · STEMsters · 100+ hours" style="--x:87%;--y:40%;--r:-4deg"><span class="key">6</span><span class="w"><b>S</b>ervice</span><small>Community</small></a></li>
         <li><a class="cmd" href="#records"  data-k="records"  data-t="Records"      data-s="Nike Outdoor Nationals qualifier · 2× All-Metro" style="--x:87%;--y:62%;--r:4deg"><span class="key">7</span><span class="w"><b>R</b>ecords</span><small>Track &amp; XC</small></a></li>
         <li><a class="cmd" href="#contact"  data-k="contact"  data-t="Calling card" data-s="GitHub · LinkedIn · email" style="--x:77%;--y:84%;--r:-5deg"><span class="key">8</span><span class="w"><b>C</b>alling card</span><small>Contact</small></a></li>
       </ul>
@@ -499,7 +516,7 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
   <div class="wrap">
     <div class="party-intro">
       <div>
-        <h2 class="tag"><span class="bg"></span>Party<span class="sub" style="color:#ffe27a">Leadership</span></h2>
+        <h2 class="tag"><span class="bg"></span>Party<span class="sub" style="color:#ffe27a">Leadership &amp; voice</span></h2>
         <p class="lede">Most of this I built inside organizations that already existed. Each card shows how the role grew and the one thing I made that wasn't there before.</p>
       </div>
       <figure class="photo has" data-slot="leadership"><img src="img/leadership-wide.jpg" alt="Carson with Tennessee Junior Classical League members at the 2026 state convention" loading="lazy" decoding="async"></figure>
@@ -561,55 +578,15 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
       </div>
     </div>
 
-    <div class="win rv" style="margin-top:18px">
-      <div class="sig" style="font:800 11px var(--body);letter-spacing:.18em;color:#9fe8ff;margin-bottom:6px">RESERVE PARTY</div>
-      <p style="font-size:14.5px">STEMsters (Corporate Outreach Officer) · HOBY (Ambassador, then Junior Facilitator for 100+ students) · Room in the Inn (Media Intern) · Civic Service Organization (100+ hours) · MUS Student Ambassador</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ TROPHIES ============ -->
-<section id="trophies" class="section">
-  <div class="wrap">
-    <h2 class="tag"><span class="bg"></span>Trophies<span class="sub">Awards &amp; honors</span></h2>
-    <div class="trophy-sum rv"><div class="big">12</div><div style="font-weight:800;letter-spacing:.14em;font-size:12px;color:#a9b2bc">UNLOCKED</div><div class="bar"><i></i></div></div>
-
-    <div class="ach">
-      <div class="a rv"><div class="medal plat">★</div><div><h4>Coolidge Senator</h4><p>Calvin Coolidge Foundation · top 100 of 4,000+ applicants</p></div><div class="r">~2.5%<small>OF APPLICANTS</small></div></div>
-      <div class="a rv"><div class="medal plat">★</div><div><h4>U.S. Senate Youth Program</h4><p>First Alternate, Tennessee</p></div><div class="r">STATE<small>SELECTION</small></div></div>
-      <div class="a rv"><div class="medal">4×</div><div><h4>National Latin Exam Gold</h4><p>Four consecutive years, grades 8–11</p></div><div class="r">GOLD<small>2023–26</small></div></div>
-      <div class="a rv"><div class="medal">◆</div><div><h4>Cum Laude Society</h4><p>Top 10% of class by GPA</p></div><div class="r">2026</div></div>
-      <div class="a rv"><div class="medal">◆</div><div><h4>National Merit Semifinalist <span class="verify">verify</span></h4><p>From the one-page resume; confirm before publishing</p></div><div class="r">2026</div></div>
-      <div class="a rv"><div class="medal">✎</div><div><h4>UVA Book Award</h4><p>University of Virginia</p></div><div class="r">2026</div></div>
-      <div class="a rv"><div class="medal silver">✦</div><div><h4>Princeton Prize in Race Relations</h4><p>Certificate of Achievement</p></div><div class="r">2026</div></div>
-      <div class="a rv"><div class="medal silver">2×</div><div><h4>Outstanding Statesperson</h4><p>TN YMCA Youth in Government, plus Outstanding Bill</p></div><div class="r">YIG</div></div>
-      <div class="a rv"><div class="medal silver">◎</div><div><h4>Model UN</h4><p>Outstanding Delegate (American U.) · Honorable Mention (Vanderbilt)</p></div><div class="r">MUN</div></div>
-      <div class="a rv"><div class="medal silver">2×</div><div><h4>TMTA West Region, 2nd place</h4><p>Calculus (2026) · Algebra II (2024)</p></div><div class="r">MATH</div></div>
-      <div class="a rv"><div class="medal bronze">✒</div><div><h4>ACT-SO Regional</h4><p>Essay Finalist · Poetry Semifinalist</p></div><div class="r">2025</div></div>
-      <div class="a rv"><div class="medal bronze">♥</div><div><h4>President's Volunteer Service Award</h4><p>Recognized service hours</p></div><div class="r">2025</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ VOICE ============ -->
-<section id="voice" class="section">
-  <div class="wrap">
-    <h2 class="tag"><span class="bg"></span>Voice<span class="sub" style="color:#c4141f">Speaking &amp; debate</span></h2>
-    <div class="arena">
-      <div>
-        <div class="box rv"><span class="who2">CARSON</span> took the floor!<span class="eff">As Gold House Floor Leader, TN YMCA Youth in Government.</span>
-          <span class="body">Drafted and debated legislation at the state conference: 2× Outstanding Statesperson and an Outstanding Bill.</span></div>
-        <div class="box rv"><span class="who2">CARSON</span> led the chapel!<span class="eff">Black History Month Chapel, 2025.</span>
-          <span class="body">Wrote and presented a school-wide program on cultural representation in media.</span></div>
-        <div class="box rv"><span class="who2">CARSON</span> joined the Senate!<span class="eff">Calvin Coolidge Foundation Senator.</span>
-          <span class="body">One of 100 Coolidge Senators chosen from 4,000+ applicants.</span></div>
-        <div class="box rv"><span class="who2">CARSON</span> ran the room!<span class="eff">BRIDGES town halls · HOBY seminars.</span>
-          <span class="body">Facilitates town halls for 100+ students a semester and taught leadership as a HOBY Junior Facilitator.</span></div>
+    <div class="battle">
+      <h3>Battle log · Speaking</h3>
+      <div class="blog">
+        <div class="win rv"><div class="act"><b>Carson</b> took the floor</div><p>Gold House Floor Leader, TN YMCA Youth in Government. Drafted and debated legislation: 2× Outstanding Statesperson and an Outstanding Bill.</p></div>
+        <div class="win rv"><div class="act"><b>Carson</b> led the chapel</div><p>Black History Month Chapel, 2025. Wrote and presented a school-wide program on cultural representation in media.</p></div>
+        <div class="win rv"><div class="act"><b>Carson</b> ran the room</div><p>Facilitates BRIDGES town halls for 100+ students a semester.</p></div>
+        <div class="win rv"><div class="act"><b>Carson</b> joined the Senate</div><p>One of 100 Coolidge Senators chosen from 4,000+ applicants.</p></div>
       </div>
-      <div>
-        <figure class="photo has" data-slot="speaking"><img src="img/speaking-sq.jpg" alt="Carson speaking at a BRIDGES event podium" loading="lazy" decoding="async"></figure>
-        <div class="hpcard"><div class="row"><span>CARSON</span><span>Lv.MAX</span></div><div class="hp"><i></i></div><div class="row"><span>MOVES</span><span>4/4</span></div></div>
-      </div>
+      <figure class="photo has" data-slot="speaking"><img src="img/speaking-sq.jpg" alt="Carson speaking at a BRIDGES event podium" loading="lazy" decoding="async"></figure>
     </div>
   </div>
 </section>
@@ -644,6 +621,30 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
   </div>
 </section>
 
+<!-- ============ SERVICE ============ -->
+<section id="service" class="section">
+  <div class="wrap">
+    <h2 class="tag"><span class="bg"></span>Service<span class="sub">Community requests</span></h2>
+    <div class="svc-row">
+      <div class="board rv">
+        <div class="notes">
+          <div class="note" style="--t:-1.5deg"><div class="req">Request · since 2021</div><h4>Civic Service Organization</h4>
+            <p>Food distributions, monthly sandwich-making, and seasonal charity drives at MUS. Over 100 hours in a single school year.</p><div class="rw">Reward: President's Volunteer Service Award</div></div>
+          <div class="note" style="--t:1.2deg"><div class="req">Request · June 2026</div><h4>HOBY Junior Facilitator</h4>
+            <p>Came back to the program that trained me as an ambassador, this time teaching leadership and running service projects for 100+ students from across Tennessee.</p></div>
+          <div class="note" style="--t:-.8deg"><div class="req">Request · since 2025</div><h4>STEMsters</h4>
+            <p>Corporate Outreach Officer. Helped open chapters at 10+ schools and built partnerships with schools, nonprofits, and sponsors to widen STEM access.</p></div>
+          <div class="note" style="--t:1.6deg"><div class="req">Request · summer 2025</div><h4>Room in the Inn</h4>
+            <p>Told the story of a Memphis nonprofit that houses people experiencing homelessness. See the full campaign under Media.</p></div>
+          <div class="note" style="--t:-1.1deg"><div class="req">Request · since 2025</div><h4>Student Ambassador</h4>
+            <p>Gives campus tours at MUS and answers prospective families' questions about classes, programs, and what the school is actually like.</p></div>
+        </div>
+      </div>
+      <figure class="photo" data-slot="service"><div><b>Photo · Service</b>At a food distribution, HOBY, or a STEMsters event</div></figure>
+    </div>
+  </div>
+</section>
+
 <!-- ============ RECORDS ============ -->
 <section id="records" class="section">
   <div class="wrap">
@@ -664,7 +665,7 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
         </table>
         <p class="insert">CONTINUE? ▸ PRESS START</p>
       </div>
-      <figure class="photo" data-slot="track"><div><b>PHOTO 5 · TRACK</b>Any race shot, ideally mid-stride</div></figure>
+      <figure class="photo has" data-slot="track"><img src="img/track-wide.jpg" alt="Carson in his MUS track singlet, flexing with racing spikes over his shoulders" loading="lazy" decoding="async"></figure>
     </div>
   </div>
 </section>
