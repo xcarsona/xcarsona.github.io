@@ -43,40 +43,55 @@ img{max-width:100%;display:block}
 .photo b{display:block;color:var(--white);font-size:14px;margin-bottom:6px}
 .photo svg{width:48px;height:48px;margin:0 auto 10px;opacity:.6}
 
-/* ================= 1. TITLE / MAIN MENU (Persona homage) ================= */
-#top{min-height:100vh;background:var(--red);overflow:hidden;padding:0;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);position:relative}
+/* ================= 1. TITLE: battle command screen (original homage) ================= */
+#top{position:relative;min-height:100vh;overflow:hidden;background:#120004;display:flex;flex-direction:column}
 #top::before{content:"";position:absolute;inset:0;background:
-  conic-gradient(from 200deg at 72% 46%,transparent 0 8deg,rgba(0,0,0,.14) 8deg 16deg,transparent 16deg 30deg,rgba(0,0,0,.14) 30deg 36deg,transparent 36deg 58deg,rgba(0,0,0,.14) 58deg 70deg,transparent 70deg 96deg,rgba(0,0,0,.14) 96deg 104deg,transparent 104deg 140deg,rgba(0,0,0,.14) 140deg 152deg,transparent 152deg 190deg,rgba(0,0,0,.14) 190deg 198deg,transparent 198deg 250deg,rgba(0,0,0,.14) 250deg 262deg,transparent 262deg 300deg,rgba(0,0,0,.14) 300deg 310deg,transparent 310deg);pointer-events:none}
-#top::after{content:"";position:absolute;left:-10%;bottom:-18%;width:75%;height:70%;background:var(--black);transform:rotate(-12deg);pointer-events:none}
-.date{position:absolute;top:22px;right:4vw;z-index:5;font-family:var(--display);text-align:right;transform:rotate(-6deg);line-height:.85}
-.date .d{font-size:clamp(46px,6vw,80px);color:var(--white);-webkit-text-stroke:2px var(--black);paint-order:stroke fill;text-shadow:5px 5px 0 var(--black)}
-.date .w{display:inline-block;background:var(--black);color:var(--white);font-size:22px;padding:4px 14px;margin-top:4px;transform:skewX(-12deg)}
-.menu-col{position:relative;z-index:3;padding:9vh 0 8vh 5vw;display:flex;flex-direction:column;justify-content:center}
-.ransom{font-family:var(--display);font-size:clamp(46px,7.4vw,112px);line-height:1;text-transform:uppercase;margin-bottom:14px}
+  radial-gradient(ellipse at 50% 55%,rgba(227,0,27,.55),transparent 60%),
+  repeating-conic-gradient(from 0deg at 50% 55%,rgba(227,0,27,.22) 0 7deg,transparent 7deg 19deg);pointer-events:none}
+#top::after{content:"";position:absolute;left:-5%;right:-5%;bottom:-6%;height:34%;background:
+  repeating-linear-gradient(90deg,#1a1a1a 0 60px,#e9e9e9 60px 120px);transform:perspective(500px) rotateX(58deg);transform-origin:bottom;opacity:.18;pointer-events:none}
+.topbar{position:relative;z-index:5;display:flex;justify-content:space-between;align-items:flex-start;padding:22px 4vw 0;gap:20px}
+.ransom{font-family:var(--display);line-height:1;text-transform:uppercase}
 .ransom .ln{display:block;white-space:nowrap}
 .ransom .ch{display:inline-block;padding:0 .06em;margin:0 .02em;box-shadow:3px 3px 0 #0b0b0b;outline:2px solid #0b0b0b}
-.who{display:inline-block;background:var(--white);color:var(--black);font-weight:800;letter-spacing:.14em;font-size:13px;padding:8px 16px;transform:skewX(-14deg) rotate(-2deg);margin-bottom:5vh;max-width:max-content}
-.who span{display:inline-block;transform:skewX(14deg)}
-nav.main ul{list-style:none;counter-reset:m}
-nav.main li{margin:-2px 0}
-nav.main a{display:inline-flex;align-items:baseline;gap:16px;text-decoration:none;font-family:var(--display);text-transform:uppercase;
-  font-size:clamp(30px,4.4vw,58px);line-height:1.06;color:var(--white);position:relative;padding:2px 26px 2px 12px;transition:transform .12s, color .12s}
-nav.main li:nth-child(odd) a{transform:rotate(-3deg)} nav.main li:nth-child(even) a{transform:rotate(2deg) translateX(18px)}
-nav.main a small{font-family:var(--body);font-weight:800;font-size:11px;letter-spacing:.24em;color:var(--red);opacity:0;transition:opacity .12s}
-nav.main a::before{content:"";position:absolute;inset:0 -6px;background:var(--white);clip-path:polygon(0 18%,100% 0,94% 100%,4% 84%);transform:scaleX(0);transform-origin:left;transition:transform .14s;z-index:-1}
-nav.main a:hover,nav.main a:focus-visible,nav.main a.on{color:var(--black);transform:rotate(-3deg) translateX(30px) scale(1.06)}
-nav.main a:hover::before,nav.main a:focus-visible::before,nav.main a.on::before{transform:scaleX(1)}
-nav.main a:hover small,nav.main a:focus-visible small,nav.main a.on small{opacity:1}
-.hint{margin-top:4vh;font:700 12px var(--body);letter-spacing:.2em;color:#ddd}
-.hint kbd{display:inline-block;background:var(--white);color:var(--black);border-radius:3px;padding:1px 6px;margin:0 2px;font:inherit}
-.portrait-col{position:relative;z-index:2;display:flex;align-items:flex-end;justify-content:center;padding:12vh 4vw 0 0}
-.portrait-frame{position:relative;width:min(470px,100%);aspect-ratio:4/5.2;transform:rotate(4deg)}
-.portrait-frame::before{content:"";position:absolute;inset:-18px -14px -40px -26px;background:var(--black);clip-path:polygon(8% 0,100% 4%,92% 100%,0 94%)}
-.portrait-frame::after{content:"";position:absolute;inset:-4px;border:4px solid var(--white);clip-path:polygon(8% 0,100% 4%,92% 100%,0 94%);pointer-events:none}
-.portrait-frame .photo{position:absolute;inset:0;clip-path:polygon(8% 0,100% 4%,92% 100%,0 94%);border:none;background:#232323}
-.bubble{position:absolute;z-index:4;left:-12%;bottom:12%;background:var(--white);color:var(--black);font-weight:800;font-size:15px;line-height:1.3;
-  padding:14px 20px;max-width:250px;transform:rotate(-5deg);clip-path:polygon(0 8%,100% 0,97% 88%,22% 92%,8% 100%,10% 90%,2% 92%)}
-.bubble em{font-style:normal;color:var(--red)}
+.namebox .ransom{font-size:clamp(34px,4.6vw,64px);margin:0}
+.namebox .who{display:inline-block;background:var(--white);color:var(--black);font-weight:800;letter-spacing:.14em;font-size:11px;padding:6px 14px;transform:skewX(-14deg) rotate(-2deg);margin-top:10px}
+.namebox .who span{display:inline-block;transform:skewX(14deg)}
+.banner{position:absolute;left:50%;top:clamp(130px,17vh,170px);transform:translateX(-50%) rotate(-3deg);z-index:6;min-width:min(520px,80vw);text-align:center}
+.banner .in{display:block;background:var(--black);color:var(--white);border:3px solid var(--white);padding:8px 26px;font-family:var(--display);font-size:clamp(20px,2.2vw,28px);letter-spacing:.03em;clip-path:polygon(2% 0,100% 0,98% 100%,0 100%)}
+.banner small{display:block;font:700 13px/1.3 var(--body);letter-spacing:.02em;color:#ddd;margin-top:2px}
+.date{text-align:right;font-family:var(--display);transform:rotate(-6deg);line-height:.85}
+.date .d{font-size:clamp(40px,5vw,70px);color:var(--white);-webkit-text-stroke:2px var(--black);paint-order:stroke fill;text-shadow:5px 5px 0 var(--red)}
+.date .w{display:inline-block;background:var(--white);color:var(--black);font-size:18px;padding:3px 12px;margin-top:4px;transform:skewX(-12deg)}
+
+.stage{position:relative;z-index:4;flex:1;width:min(1180px,100%);margin:0 auto 34px;min-height:620px}
+.hero-photo{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:clamp(240px,25vw,330px);aspect-ratio:3/4}
+.hero-photo::before{content:"";position:absolute;inset:-22px;background:var(--black);clip-path:polygon(50% 0,62% 14%,82% 4%,80% 24%,100% 30%,86% 46%,100% 64%,80% 70%,84% 94%,62% 84%,50% 100%,38% 86%,16% 96%,20% 72%,0 64%,14% 48%,0 30%,20% 26%,16% 4%,38% 14%)}
+.hero-photo .ph{position:absolute;inset:0;opacity:0;transition:opacity .22s,transform .22s;transform:scale(.97);clip-path:polygon(6% 2%,96% 0,100% 96%,2% 100%);border:none;background:#262626}
+.hero-photo .ph.on{opacity:1;transform:none}
+.hero-photo .ph b{font-size:13px}
+.ring{position:absolute;inset:0;list-style:none}
+.cmd{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%) rotate(var(--r));display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--white);transition:transform .14s;white-space:nowrap}
+.cmd .key{flex:none;width:30px;height:30px;border-radius:50%;background:var(--white);color:var(--black);display:grid;place-items:center;font:800 14px var(--body);box-shadow:0 0 0 3px var(--black)}
+.cmd .w{position:relative;font-family:var(--display);text-transform:uppercase;font-size:clamp(30px,3.6vw,50px);line-height:1;padding:4px 18px 4px 12px;-webkit-text-stroke:3px var(--black);paint-order:stroke fill;letter-spacing:.01em}
+.cmd .w::before{content:"";position:absolute;inset:4px -4px 2px -6px;background:var(--black);clip-path:polygon(0 12%,100% 0,96% 100%,3% 88%);z-index:-1;transition:background .14s}
+.cmd .w b{font-size:1.32em;font-weight:400}
+.cmd small{position:absolute;left:52px;top:100%;margin-top:4px;font:800 11px var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--white);background:var(--black);padding:2px 8px;opacity:.85}
+.cmd:hover,.cmd:focus-visible,.cmd.on{transform:translate(-50%,-50%) rotate(var(--r)) scale(1.12)}
+.cmd:hover .w::before,.cmd:focus-visible .w::before,.cmd.on .w::before{background:var(--red)}
+.cmd.on .key{background:var(--red);color:var(--white);box-shadow:0 0 0 3px var(--white)}
+.cmd:focus-visible{outline:none}
+.cmd.on small{opacity:1;background:var(--red)}
+
+.party-hud{position:absolute;right:2vw;bottom:-6px;z-index:5;display:flex;gap:10px}
+.hud{background:var(--black);border:2px solid var(--white);padding:8px 14px;transform:skewX(-10deg);min-width:150px}
+.hud > *{transform:skewX(10deg)}
+.hud .n{font-family:var(--display);font-size:18px;letter-spacing:.04em}
+.hud .bar{height:6px;background:#333;margin:5px 0 2px}
+.hud .bar i{display:block;height:100%}
+.hud .l{display:flex;justify-content:space-between;font:800 10px var(--body);letter-spacing:.12em;color:#bbb}
+.keys{position:relative;z-index:5;display:flex;flex-wrap:wrap;gap:8px 22px;padding:14px 4vw 22px;font:700 12px var(--body);letter-spacing:.12em;color:#ddd;text-transform:uppercase}
+.keys kbd{display:inline-block;background:var(--white);color:var(--black);border-radius:4px;padding:1px 7px;margin-right:6px;font:inherit}
 
 /* ================= 2. STATUS (Persona status screen) ================= */
 #status{background:var(--white);color:var(--black)}
@@ -240,10 +255,19 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
 
 /* ---------- responsive ---------- */
 @media (max-width:960px){
-  #top{grid-template-columns:1fr}
-  .portrait-col{padding:0 8vw 70px;order:2}
-  .menu-col{padding:96px 6vw 30px}
-  .bubble{left:-4%;bottom:6%}
+  .banner{position:relative;left:auto;top:auto;transform:rotate(-2deg);margin:18px auto 0;min-width:0;width:92%}
+  .stage{min-height:0;display:flex;flex-direction:column;align-items:center;padding:30px 5vw 10px}
+  .hero-photo{position:relative;left:auto;top:auto;transform:none;width:min(260px,70vw);margin:20px 0 34px}
+  .ring{position:static;display:grid;grid-template-columns:1fr 1fr;gap:22px 14px;width:100%}
+  .cmd{position:relative;left:auto;top:auto;transform:rotate(var(--r))}
+  .cmd:hover,.cmd:focus-visible,.cmd.on{transform:rotate(var(--r)) scale(1.05)}
+  .cmd .w{font-size:28px;padding:2px 12px 2px 8px}
+  .cmd .key{width:24px;height:24px;font-size:12px}
+  .cmd small{left:34px;font-size:9px}
+  .party-hud{position:static;margin-top:34px}
+  .keys{display:none}
+  .ring li:last-child{grid-column:1/-1;justify-self:center}
+  .date .d{font-size:34px}.date .w{font-size:13px}
   .status-grid,.journal,.qrow,.party-intro,.arena,.cab{grid-template-columns:1fr}
   .qlist{border-right:none;border-bottom:2px solid #6b5631;display:flex;flex-wrap:wrap;padding:10px}
   .qlist h4{width:100%}
@@ -254,9 +278,6 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
   .ach{grid-template-columns:1fr}
   .party-grid{grid-template-columns:1fr}
   .card{padding:34px 26px}
-  .hint{display:none}
-  .date{top:14px;right:14px}.date .d{font-size:38px}.date .w{font-size:15px}
-  .menu-col{padding-top:110px}
 }
 @media (max-width:520px){
   .abil ul{grid-template-columns:1fr}
@@ -276,35 +297,46 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
 
 <!-- ============ TITLE SCREEN ============ -->
 <header id="top">
-  <div class="date" aria-hidden="true"><div class="d" id="dd">10/31</div><div class="w" id="dw">SAT · MEMPHIS</div></div>
+  <div class="topbar">
+    <div class="namebox">
+      <h1 class="ransom" data-ransom aria-label="Carson Alexander"><span class="ln">Carson</span><span class="ln">Alexander</span></h1>
+      <div class="who"><span>MEMPHIS UNIVERSITY SCHOOL · CLASS OF 2027</span></div>
+    </div>
+    <div class="date" aria-hidden="true"><div class="d" id="dd">10/31</div><div class="w" id="dw">SAT · MEMPHIS</div></div>
+  </div>
 
-  <div class="menu-col">
-    <h1 class="ransom" data-ransom aria-label="Carson Alexander"><span class="ln">Carson</span><span class="ln">Alexander</span></h1>
-    <div class="who"><span>MEMPHIS UNIVERSITY SCHOOL · CLASS OF 2027 · COGNITIVE SCIENCE / NEUROSCIENCE</span></div>
+  <div class="banner" aria-live="polite"><span class="in" id="bn-t">Choose a command</span><small id="bn-s">Hover a move to preview it. Click to open.</small></div>
 
-    <nav class="main" aria-label="Main menu">
-      <ul>
-        <li><a href="#status">Status <small>Stats &amp; skills</small></a></li>
-        <li><a href="#quests">Quests <small>Research &amp; builds</small></a></li>
-        <li><a href="#party">Party <small>Leadership</small></a></li>
-        <li><a href="#trophies">Trophies <small>Awards</small></a></li>
-        <li><a href="#voice">Voice <small>Speaking</small></a></li>
-        <li><a href="#records">Records <small>Track &amp; XC</small></a></li>
-        <li><a href="#contact">Calling card <small>Contact</small></a></li>
+  <div class="stage">
+    <div class="hero-photo" aria-hidden="true">
+      <figure class="photo ph on" data-for="default"><div><b>Photo · Main portrait</b>Waist-up, plain background</div></figure>
+      <figure class="photo ph" data-for="status"><div><b>Photo · Status</b>Clean headshot</div></figure>
+      <figure class="photo ph" data-for="quests"><div><b>Photo · Quests</b>At St. Jude or a laptop</div></figure>
+      <figure class="photo ph" data-for="party"><div><b>Photo · Party</b>Leading a BRIDGES / TJCL event</div></figure>
+      <figure class="photo ph" data-for="trophies"><div><b>Photo · Trophies</b>Holding an award or medal</div></figure>
+      <figure class="photo ph" data-for="voice"><div><b>Photo · Voice</b>At a podium, mid-speech</div></figure>
+      <figure class="photo ph" data-for="records"><div><b>Photo · Records</b>Mid-race</div></figure>
+      <figure class="photo ph" data-for="contact"><div><b>Photo · Calling card</b>Fun or casual shot</div></figure>
+    </div>
+
+    <nav aria-label="Main menu">
+      <ul class="ring">
+        <li><a class="cmd" href="#status"   data-k="status"   data-t="Status"       data-s="ACT 35 · 14 APs · Cum Laude · stats and abilities" style="--x:22%;--y:22%;--r:-7deg"><span class="key">1</span><span class="w"><b>S</b>tatus</span><small>Stats &amp; skills</small></a></li>
+        <li><a class="cmd" href="#quests"   data-k="quests"   data-t="Quests"       data-s="NeuroVox · St. Jude · Synthesis" style="--x:15%;--y:50%;--r:4deg"><span class="key">2</span><span class="w"><b>Q</b>uests</span><small>Research &amp; builds</small></a></li>
+        <li><a class="cmd" href="#party"    data-k="party"    data-t="Party"        data-s="BRIDGES · TJCL · Youth in Government · DECA" style="--x:22%;--y:78%;--r:-5deg"><span class="key">3</span><span class="w"><b>P</b>arty</span><small>Leadership</small></a></li>
+        <li><a class="cmd" href="#trophies" data-k="trophies" data-t="Trophies"     data-s="Coolidge Senator · USSYP Alternate · 4× NLE Gold" style="--x:78%;--y:22%;--r:6deg"><span class="key">4</span><span class="w"><b>T</b>rophies</span><small>Awards</small></a></li>
+        <li><a class="cmd" href="#voice"    data-k="voice"    data-t="Voice"        data-s="Floor Leader · chapel program · town halls" style="--x:85%;--y:48%;--r:-4deg"><span class="key">5</span><span class="w"><b>V</b>oice</span><small>Speaking</small></a></li>
+        <li><a class="cmd" href="#records"  data-k="records"  data-t="Records"      data-s="Nike Outdoor Nationals qualifier · 2× All-Metro" style="--x:78%;--y:76%;--r:5deg"><span class="key">6</span><span class="w"><b>R</b>ecords</span><small>Track &amp; XC</small></a></li>
+        <li><a class="cmd" href="#contact"  data-k="contact"  data-t="Calling card" data-s="GitHub · LinkedIn · email" style="--x:50%;--y:93%;--r:-2deg"><span class="key">7</span><span class="w"><b>C</b>alling card</span><small>Contact</small></a></li>
       </ul>
     </nav>
-    <p class="hint">USE <kbd>↑</kbd><kbd>↓</kbd> + <kbd>ENTER</kbd>, OR JUST SCROLL</p>
+
+    <div class="party-hud" aria-hidden="true">
+      <div class="hud"><div class="n">CARSON</div><div class="bar"><i style="width:97%;background:#51e08a"></i></div><div class="l"><span>ACT</span><span>35/36</span></div><div class="bar"><i style="width:100%;background:#38b6ff"></i></div><div class="l"><span>APs</span><span>14</span></div></div>
+    </div>
   </div>
 
-  <div class="portrait-col">
-    <div class="portrait-frame">
-      <figure class="photo" data-slot="hero">
-        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
-        <b>Photo 1 · Main portrait</b>Waist-up, plain background,<br>looking slightly off-camera</div>
-      </figure>
-    </div>
-    <div class="bubble">Problem first. Discipline second. <em>Build.</em> Then ask what it cost.</div>
-  </div>
+  <div class="keys" aria-hidden="true"><span><kbd>↑↓</kbd>Select</span><span><kbd>1–7</kbd>Shortcut</span><span><kbd>Enter</kbd>Confirm</span><span><kbd>Scroll</kbd>Skip menu</span></div>
 </header>
 
 <main>
@@ -632,15 +664,21 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
   document.getElementById('dd').textContent=(d.getMonth()+1)+'/'+d.getDate();
   document.getElementById('dw').textContent=days[d.getDay()]+' · MEMPHIS';
 
-  // Keyboard menu
-  const items=[...document.querySelectorAll('nav.main a')]; let idx=0;
-  const mark=i=>{items.forEach(a=>a.classList.remove('on'));items[i].classList.add('on');items[i].focus({preventScroll:true})};
+  // Command wheel: hover/focus swaps the center photo and the banner
+  const items=[...document.querySelectorAll('.cmd')], phs=[...document.querySelectorAll('.hero-photo .ph')];
+  const bt=document.getElementById('bn-t'), bs=document.getElementById('bn-s'); let idx=-1;
+  const show=k=>phs.forEach(p=>p.classList.toggle('on',p.dataset.for===k));
+  const sel=(i,focus)=>{idx=i;items.forEach((a,j)=>a.classList.toggle('on',j===i));const a=items[i];
+    show(a.dataset.k);bt.textContent=a.dataset.t;bs.textContent=a.dataset.s;if(focus)a.focus({preventScroll:true})};
+  items.forEach((a,i)=>{a.addEventListener('mouseenter',()=>sel(i));a.addEventListener('focus',()=>sel(i))});
+  document.querySelector('.ring').addEventListener('mouseleave',()=>{if(document.activeElement&&items.includes(document.activeElement))return;
+    idx=-1;items.forEach(a=>a.classList.remove('on'));show('default');bt.textContent='Choose a command';bs.textContent='Hover a move to preview it. Click to open.'});
   document.addEventListener('keydown',e=>{
-    if(window.scrollY>window.innerHeight*.6) return;
-    if(e.key==='ArrowDown'){e.preventDefault();idx=(idx+1)%items.length;mark(idx)}
-    else if(e.key==='ArrowUp'){e.preventDefault();idx=(idx-1+items.length)%items.length;mark(idx)}
+    if(window.scrollY>window.innerHeight*.6||e.target.closest('[role=tab]')) return;
+    if(e.key==='ArrowDown'||e.key==='ArrowRight'){e.preventDefault();sel((idx+1)%items.length,true)}
+    else if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();sel((idx-1+items.length)%items.length,true)}
+    else if(/^[1-7]$/.test(e.key)){sel(+e.key-1,true)}
   });
-  items.forEach((a,i)=>a.addEventListener('mouseenter',()=>{idx=i;items.forEach(x=>x.classList.remove('on'))}));
 
   // Quest tabs
   const tabs=[...document.querySelectorAll('[role=tab]')];
