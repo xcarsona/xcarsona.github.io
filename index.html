@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carson Alexander | Portfolio</title>
+<meta name="description" content="Carson Alexander, Memphis University School '27. Research in cognitive science and neuroscience, civic leadership, and the things he built along the way.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700;800&family=Press+Start+2P&family=Cinzel:wght@600;800&family=VT323&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#e3001b; --red-d:#a10013; --black:#0b0b0b; --ink:#141414; --white:#fafafa; --cream:#f3efe6;
+  --gray:#9a9a9a; --gold:#f5c542; --teal:#38d1c4;
+  --display:'Anton',Impact,'Arial Narrow',sans-serif;
+  --body:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--body);line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%;display:block}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+/* ---------- shared: halftone + slant ---------- */
+.halftone{background-image:radial-gradient(rgba(0,0,0,.35) 1.4px,transparent 1.6px);background-size:9px 9px}
+.slash{clip-path:polygon(0 0,100% 0,100% 88%,0 100%)}
+.section{position:relative;padding:110px 6vw 120px;scroll-margin-top:0}
+.wrap{max-width:1180px;margin:0 auto;position:relative}
+
+/* Persona-style section header: slanted black tag on red */
+.tag{display:inline-block;position:relative;font-family:var(--display);text-transform:uppercase;letter-spacing:.02em;
+  font-size:clamp(44px,8vw,104px);line-height:.9;transform:rotate(-4deg) skewX(-8deg);margin-bottom:36px}
+.tag .bg{position:absolute;inset:-8px -26px -10px -18px;background:var(--black);clip-path:polygon(3% 0,100% 6%,96% 100%,0 90%);z-index:-1}
+.tag .sub{display:block;font-family:var(--body);font-weight:800;font-size:13px;letter-spacing:.3em;color:var(--red);margin-top:10px;transform:skewX(8deg)}
+.lede{max-width:720px;font-size:18px}
+
+/* ---------- photo slots ---------- */
+.photo{position:relative;background:#1c1c1c;overflow:hidden;display:grid;place-items:center;text-align:center;color:#bbb;
+  border:2px dashed #555;font:700 12px/1.4 var(--body);letter-spacing:.12em;text-transform:uppercase;padding:14px}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo b{display:block;color:var(--white);font-size:14px;margin-bottom:6px}
+.photo svg{width:48px;height:48px;margin:0 auto 10px;opacity:.6}
+
+/* ================= 1. TITLE / MAIN MENU (Persona homage) ================= */
+#top{min-height:100vh;background:var(--red);overflow:hidden;padding:0;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);position:relative}
+#top::before{content:"";position:absolute;inset:0;background:
+  conic-gradient(from 200deg at 72% 46%,transparent 0 8deg,rgba(0,0,0,.14) 8deg 16deg,transparent 16deg 30deg,rgba(0,0,0,.14) 30deg 36deg,transparent 36deg 58deg,rgba(0,0,0,.14) 58deg 70deg,transparent 70deg 96deg,rgba(0,0,0,.14) 96deg 104deg,transparent 104deg 140deg,rgba(0,0,0,.14) 140deg 152deg,transparent 152deg 190deg,rgba(0,0,0,.14) 190deg 198deg,transparent 198deg 250deg,rgba(0,0,0,.14) 250deg 262deg,transparent 262deg 300deg,rgba(0,0,0,.14) 300deg 310deg,transparent 310deg);pointer-events:none}
+#top::after{content:"";position:absolute;left:-10%;bottom:-18%;width:75%;height:70%;background:var(--black);transform:rotate(-12deg);pointer-events:none}
+.date{position:absolute;top:22px;right:4vw;z-index:5;font-family:var(--display);text-align:right;transform:rotate(-6deg);line-height:.85}
+.date .d{font-size:clamp(46px,6vw,80px);color:var(--white);-webkit-text-stroke:2px var(--black);paint-order:stroke fill;text-shadow:5px 5px 0 var(--black)}
+.date .w{display:inline-block;background:var(--black);color:var(--white);font-size:22px;padding:4px 14px;margin-top:4px;transform:skewX(-12deg)}
+.menu-col{position:relative;z-index:3;padding:9vh 0 8vh 5vw;display:flex;flex-direction:column;justify-content:center}
+.ransom{font-family:var(--display);font-size:clamp(46px,7.4vw,112px);line-height:1;text-transform:uppercase;margin-bottom:14px}
+.ransom .ln{display:block;white-space:nowrap}
+.ransom .ch{display:inline-block;padding:0 .06em;margin:0 .02em;box-shadow:3px 3px 0 #0b0b0b;outline:2px solid #0b0b0b}
+.who{display:inline-block;background:var(--white);color:var(--black);font-weight:800;letter-spacing:.14em;font-size:13px;padding:8px 16px;transform:skewX(-14deg) rotate(-2deg);margin-bottom:5vh;max-width:max-content}
+.who span{display:inline-block;transform:skewX(14deg)}
+nav.main ul{list-style:none;counter-reset:m}
+nav.main li{margin:-2px 0}
+nav.main a{display:inline-flex;align-items:baseline;gap:16px;text-decoration:none;font-family:var(--display);text-transform:uppercase;
+  font-size:clamp(30px,4.4vw,58px);line-height:1.06;color:var(--white);position:relative;padding:2px 26px 2px 12px;transition:transform .12s, color .12s}
+nav.main li:nth-child(odd) a{transform:rotate(-3deg)} nav.main li:nth-child(even) a{transform:rotate(2deg) translateX(18px)}
+nav.main a small{font-family:var(--body);font-weight:800;font-size:11px;letter-spacing:.24em;color:var(--red);opacity:0;transition:opacity .12s}
+nav.main a::before{content:"";position:absolute;inset:0 -6px;background:var(--white);clip-path:polygon(0 18%,100% 0,94% 100%,4% 84%);transform:scaleX(0);transform-origin:left;transition:transform .14s;z-index:-1}
+nav.main a:hover,nav.main a:focus-visible,nav.main a.on{color:var(--black);transform:rotate(-3deg) translateX(30px) scale(1.06)}
+nav.main a:hover::before,nav.main a:focus-visible::before,nav.main a.on::before{transform:scaleX(1)}
+nav.main a:hover small,nav.main a:focus-visible small,nav.main a.on small{opacity:1}
+.hint{margin-top:4vh;font:700 12px var(--body);letter-spacing:.2em;color:#ddd}
+.hint kbd{display:inline-block;background:var(--white);color:var(--black);border-radius:3px;padding:1px 6px;margin:0 2px;font:inherit}
+.portrait-col{position:relative;z-index:2;display:flex;align-items:flex-end;justify-content:center;padding:12vh 4vw 0 0}
+.portrait-frame{position:relative;width:min(470px,100%);aspect-ratio:4/5.2;transform:rotate(4deg)}
+.portrait-frame::before{content:"";position:absolute;inset:-18px -14px -40px -26px;background:var(--black);clip-path:polygon(8% 0,100% 4%,92% 100%,0 94%)}
+.portrait-frame::after{content:"";position:absolute;inset:-4px;border:4px solid var(--white);clip-path:polygon(8% 0,100% 4%,92% 100%,0 94%);pointer-events:none}
+.portrait-frame .photo{position:absolute;inset:0;clip-path:polygon(8% 0,100% 4%,92% 100%,0 94%);border:none;background:#232323}
+.bubble{position:absolute;z-index:4;left:-12%;bottom:12%;background:var(--white);color:var(--black);font-weight:800;font-size:15px;line-height:1.3;
+  padding:14px 20px;max-width:250px;transform:rotate(-5deg);clip-path:polygon(0 8%,100% 0,97% 88%,22% 92%,8% 100%,10% 90%,2% 92%)}
+.bubble em{font-style:normal;color:var(--red)}
+
+/* ================= 2. STATUS (Persona status screen) ================= */
+#status{background:var(--white);color:var(--black)}
+#status .tag{color:var(--white)}
+.status-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:42px;align-items:start}
+.card-black{background:var(--black);color:var(--white);padding:30px 32px;clip-path:polygon(0 0,100% 3%,98% 100%,2% 97%);position:relative}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:10px 22px;font-size:15px}
+.kv dt{font-family:var(--display);font-size:20px;color:var(--red);text-transform:uppercase;letter-spacing:.03em;line-height:1.25}
+.kv dd{font-weight:500}
+.course-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.course-tags span{background:#262626;border-left:3px solid var(--red);font-size:12px;font-weight:700;padding:3px 9px}
+.stats h3,.abil h3{font-family:var(--display);font-size:30px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.stats h3::after,.abil h3::after{content:"";flex:1;height:5px;background:var(--black);transform:skewX(-30deg)}
+.stat{display:grid;grid-template-columns:118px 1fr;gap:4px 16px;align-items:center;margin-bottom:16px}
+.stat .nm{font-family:var(--display);font-size:24px;text-transform:uppercase;line-height:1;background:var(--black);color:var(--white);padding:6px 10px 4px;transform:skewX(-12deg);text-align:center}
+.pips{display:flex;gap:5px}
+.pips i{flex:1;height:18px;background:#ddd;transform:skewX(-20deg)}
+.pips i.f{background:var(--red)}
+.stat .rk{font:800 11px var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--red-d)}
+.stat p{grid-column:2;font-size:13.5px;color:#333;margin-top:-2px}
+.abil{margin-top:36px}
+.abil ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 12px}
+.abil li{display:flex;justify-content:space-between;align-items:center;background:var(--black);color:var(--white);padding:8px 14px;font-weight:700;font-size:14px;clip-path:polygon(0 0,100% 0,97% 100%,0 100%)}
+.abil li span{font:800 10px var(--body);letter-spacing:.16em;color:var(--red);text-transform:uppercase}
+.abil li:hover{background:var(--red)} .abil li:hover span{color:var(--white)}
+
+/* ================= 3. QUESTS (fantasy RPG journal) ================= */
+#quests{background:#16120d;color:#efe4cc}
+#quests::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 0%,rgba(245,197,66,.12),transparent 55%),radial-gradient(ellipse at 90% 100%,rgba(227,0,27,.12),transparent 50%);pointer-events:none}
+#quests .tag{color:var(--gold)}
+#quests .tag .bg{background:#000}
+.journal{display:grid;grid-template-columns:280px 1fr;gap:0;border:2px solid #6b5631;background:#211a12;box-shadow:0 0 0 6px #16120d,0 0 0 8px #6b5631,0 30px 60px rgba(0,0,0,.5)}
+.qlist{border-right:2px solid #6b5631;padding:18px 0;background:#1a140e}
+.qlist h4{font:600 12px 'Cinzel',serif;letter-spacing:.24em;color:#a08a5e;padding:10px 22px 6px}
+.qlist button{all:unset;cursor:pointer;display:block;width:100%;box-sizing:border-box;padding:10px 22px 10px 40px;font:600 15px 'Cinzel',serif;color:#d9c9a6;position:relative}
+.qlist button::before{content:"";position:absolute;left:20px;top:16px;width:9px;height:9px;border:2px solid #a08a5e;transform:rotate(45deg)}
+.qlist button[aria-selected=true]{background:linear-gradient(90deg,rgba(245,197,66,.18),transparent);color:var(--gold)}
+.qlist button[aria-selected=true]::before{background:var(--gold);border-color:var(--gold)}
+.qlist button:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+.qpanel{padding:32px 38px;min-height:460px}
+.qpanel[hidden]{display:none}
+.qpanel .kind{font:600 12px 'Cinzel',serif;letter-spacing:.3em;color:var(--red);text-transform:uppercase}
+.qpanel h3{font:800 clamp(26px,3vw,36px)/1.15 'Cinzel',serif;color:#fff3d6;margin:6px 0 4px}
+.qpanel .meta{font-size:13px;color:#a08a5e;margin-bottom:18px;letter-spacing:.04em}
+.qpanel p{margin-bottom:14px;max-width:680px;color:#e7dbbf}
+.obj{list-style:none;margin:18px 0;max-width:680px}
+.obj li{position:relative;padding:6px 0 6px 32px;border-bottom:1px dashed #4a3c24;font-size:15px}
+.obj li::before{content:"";position:absolute;left:4px;top:11px;width:13px;height:13px;border:2px solid #a08a5e}
+.obj li.done::before{background:var(--gold);border-color:var(--gold);box-shadow:inset 0 0 0 2px #211a12}
+.obj li.fail::before{border-color:var(--red);background:linear-gradient(45deg,transparent 42%,var(--red) 42% 58%,transparent 58%)}
+.qrow{display:grid;grid-template-columns:1fr 240px;gap:28px;align-items:start}
+.qrow .photo{aspect-ratio:3/4;border-color:#6b5631;background:#1a140e;color:#a08a5e}
+.reward{display:inline-flex;gap:10px;align-items:center;border:1px solid #6b5631;padding:6px 14px;font:600 13px 'Cinzel',serif;color:var(--gold);margin-top:6px}
+.todo{background:rgba(227,0,27,.16);border:1px dashed var(--red);color:#ffd7d7;padding:2px 6px;font-size:.92em}
+.verify{display:inline-block;background:var(--gold);color:#000;font:800 10px var(--body);letter-spacing:.12em;padding:2px 6px;margin-left:6px;vertical-align:middle;text-transform:uppercase}
+.repo{display:inline-block;margin-top:4px;color:var(--gold);font-weight:700;font-size:14px}
+
+/* ================= 4. PARTY (JRPG menu windows) ================= */
+#party{background:linear-gradient(180deg,#0b1a4a,#050b24);color:#fff}
+#party .tag{color:#fff}
+#party .tag .bg{background:var(--red)}
+.party-intro{display:grid;grid-template-columns:1fr 300px;gap:30px;align-items:end;margin-bottom:34px}
+.party-intro .photo{aspect-ratio:4/3;border:3px solid #dfe6ff;border-radius:10px;background:#0f2163;color:#aab8ff}
+.win{background:linear-gradient(180deg,#2340a8,#0f2163);border:3px solid #dfe6ff;border-radius:10px;box-shadow:inset 0 0 0 2px #0a1648,0 10px 24px rgba(0,0,0,.4);padding:20px 22px}
+.party-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px}
+.member h3{font-family:var(--display);font-size:26px;letter-spacing:.02em;text-transform:uppercase;line-height:1.05}
+.member .cls{display:flex;justify-content:space-between;align-items:baseline;font:700 12px var(--body);letter-spacing:.16em;color:#ffe27a;text-transform:uppercase;margin:6px 0 10px}
+.lvl{display:flex;gap:4px;align-items:center;margin-bottom:12px;font:700 11px var(--body);color:#c8d2ff;flex-wrap:wrap}
+.lvl span{background:#0a1648;border:1px solid #6d82d8;padding:2px 8px;border-radius:3px}
+.lvl span.now{background:#ffe27a;color:#0a1648;border-color:#ffe27a}
+.lvl b{color:#6d82d8}
+.member .sig{font:800 11px var(--body);letter-spacing:.18em;color:#9fe8ff;text-transform:uppercase;margin-top:10px}
+.member p{font-size:14.5px;color:#e8ecff}
+.hpbar{height:8px;background:#0a1648;border:1px solid #6d82d8;border-radius:4px;margin-top:12px;overflow:hidden}
+.hpbar i{display:block;height:100%;background:linear-gradient(90deg,#51e08a,#b9f25a)}
+.hplab{display:flex;justify-content:space-between;font:700 10px var(--body);letter-spacing:.16em;color:#9fb0f0;margin-top:4px}
+
+/* ================= 5. TROPHIES (achievement list) ================= */
+#trophies{background:#101215;color:#e9eef2}
+#trophies .tag{color:#fff}
+#trophies .tag .bg{background:#000;outline:3px solid var(--red)}
+.trophy-sum{display:flex;gap:28px;align-items:center;margin-bottom:26px;flex-wrap:wrap}
+.trophy-sum .big{font-family:var(--display);font-size:64px;line-height:1;color:var(--gold)}
+.trophy-sum .bar{flex:1;min-width:220px;height:10px;background:#2a2e35;border-radius:5px;overflow:hidden}
+.trophy-sum .bar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--gold),#fff1b8)}
+.ach{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:12px}
+.a{display:grid;grid-template-columns:58px 1fr auto;gap:16px;align-items:center;background:#1a1d22;border:1px solid #2a2e35;border-radius:8px;padding:14px 16px;transition:transform .15s,border-color .15s}
+.a:hover{transform:translateY(-2px);border-color:var(--gold)}
+.medal{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-size:22px;color:#111;
+  background:radial-gradient(circle at 35% 30%,#fff7d0,var(--gold) 45%,#a87b10)}
+.medal.silver{background:radial-gradient(circle at 35% 30%,#fff,#c8ced6 45%,#7b838f)}
+.medal.bronze{background:radial-gradient(circle at 35% 30%,#ffe2c6,#d38b4b 45%,#7c4519)}
+.medal.plat{background:radial-gradient(circle at 35% 30%,#fff,#bfe8ff 40%,#5a8fb8);box-shadow:0 0 18px rgba(150,220,255,.5)}
+.a h4{font-size:16px;font-weight:800;line-height:1.25}
+.a p{font-size:13px;color:#a9b2bc}
+.a .r{text-align:right;font:800 11px var(--body);letter-spacing:.1em;color:var(--gold);white-space:nowrap}
+.a .r small{display:block;color:#79828c;font-weight:700;letter-spacing:.06em}
+
+/* ================= 6. VOICE (pixel monster-battle text boxes) ================= */
+#voice{background:#d8f0d0;color:#1b1b1b;font-family:'Press Start 2P',monospace}
+#voice::before{content:"";position:absolute;inset:0;background:linear-gradient(#cfe8c6 2px,transparent 2px) 0 0/100% 8px;opacity:.6;pointer-events:none}
+#voice .tag{color:#fff;font-family:var(--display)}
+.arena{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start}
+.arena .photo{aspect-ratio:1/1;border:4px solid #1b1b1b;border-radius:0;background:#b9dcae;color:#1b1b1b;font-family:'Press Start 2P',monospace;font-size:9px;line-height:1.8;image-rendering:pixelated}
+.arena .photo b{font-size:10px;color:#1b1b1b}
+.box{background:#fff;border:4px solid #1b1b1b;border-radius:10px;box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 7px #4a8fd6;padding:22px 26px;margin-bottom:16px;position:relative;font-size:12px;line-height:2}
+.box .who2{color:#c4141f}
+.box .eff{display:block;margin-top:8px;color:#2a6a2a}
+.box .body{font-family:var(--body);font-size:15px;line-height:1.55;display:block;margin-top:10px;color:#222}
+.box::after{content:"▼";position:absolute;right:16px;bottom:10px;font-size:10px;color:#c4141f;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hpcard{background:#fff;border:4px solid #1b1b1b;border-radius:0 18px 0 18px;padding:14px 16px;font-size:10px;line-height:1.8;margin-top:14px}
+.hpcard .row{display:flex;justify-content:space-between}
+.hpcard .hp{height:8px;border:2px solid #1b1b1b;margin:6px 0;background:#eee}
+.hpcard .hp i{display:block;height:100%;width:100%;background:#3fbf4a}
+
+/* ================= 7. RECORDS (arcade time trial) ================= */
+#records{background:#05020f;color:#e9e6ff;font-family:'VT323',monospace}
+#records::before{content:"";position:absolute;inset:0;background:
+  linear-gradient(transparent 60%,rgba(255,0,140,.12)),
+  repeating-linear-gradient(90deg,rgba(56,209,196,.10) 0 1px,transparent 1px 70px),
+  repeating-linear-gradient(0deg,rgba(56,209,196,.10) 0 1px,transparent 1px 70px);pointer-events:none}
+#records .tag{color:#fff;font-family:var(--display)}
+#records .tag .bg{background:#ff2bd6}
+.cab{display:grid;grid-template-columns:1fr 340px;gap:30px;align-items:start}
+.hs{border:3px solid var(--teal);box-shadow:0 0 22px rgba(56,209,196,.4),inset 0 0 22px rgba(56,209,196,.15);padding:24px 26px;background:rgba(5,2,15,.8)}
+.hs h3{font-size:34px;color:#ff2bd6;text-align:center;letter-spacing:.12em;text-shadow:0 0 10px #ff2bd6;margin-bottom:10px}
+.hs table{width:100%;border-collapse:collapse;font-size:26px}
+.hs th{color:var(--teal);font-weight:400;text-align:left;padding:4px 8px;font-size:20px;letter-spacing:.1em}
+.hs td{padding:4px 8px;border-top:1px dashed rgba(56,209,196,.3)}
+.hs td:last-child{color:var(--gold);text-align:right}
+.hs tr:first-child td{color:#fff}
+.cab .photo{aspect-ratio:3/4;border:3px solid #ff2bd6;box-shadow:0 0 22px rgba(255,43,214,.35);background:#120526;color:#e9a8ff;font-family:'VT323',monospace;font-size:20px;letter-spacing:.06em}
+.cab .photo b{font-size:22px}
+.insert{text-align:center;font-size:28px;color:var(--gold);margin-top:18px;animation:blink 1.2s steps(1) infinite}
+
+/* ================= 8. CALLING CARD (contact) ================= */
+#contact{background:var(--red);color:var(--black);overflow:hidden;padding-bottom:60px}
+#contact::before{content:"";position:absolute;inset:0;background:radial-gradient(rgba(0,0,0,.18) 1.5px,transparent 1.7px) 0 0/10px 10px;pointer-events:none}
+.card{position:relative;max-width:820px;margin:0 auto;background:var(--white);padding:46px 50px 40px;transform:rotate(-2.2deg);box-shadow:16px 16px 0 var(--black);
+  clip-path:polygon(0 3%,100% 0,98% 100%,2% 96%)}
+.card .ransom{font-size:clamp(34px,5.6vw,66px);margin-bottom:22px}
+.card p{font-size:17px;max-width:620px;margin-bottom:14px}
+.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.links a{display:inline-block;text-decoration:none;background:var(--black);color:var(--white);font-family:var(--display);font-size:22px;letter-spacing:.04em;padding:10px 22px;transform:skewX(-12deg);transition:background .12s,transform .12s}
+.links a span{display:inline-block;transform:skewX(12deg)}
+.links a:hover{background:var(--red);transform:skewX(-12deg) translateY(-3px)}
+.mail{margin-top:14px;font:700 14px var(--body);letter-spacing:.04em}
+.sign{margin-top:26px;font-family:var(--display);font-size:28px;text-align:right;transform:rotate(-3deg)}
+footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;text-align:center;line-height:1.7}
+
+/* back-to-menu pill */
+.back{position:fixed;right:18px;bottom:18px;z-index:50;text-decoration:none;background:var(--black);color:var(--white);border:2px solid var(--white);
+  font-family:var(--display);font-size:18px;letter-spacing:.06em;padding:8px 16px;transform:skewX(-12deg);opacity:0;pointer-events:none;transition:opacity .2s}
+.back.show{opacity:1;pointer-events:auto}
+.back:hover{background:var(--red)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .5s,transform .5s}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- responsive ---------- */
+@media (max-width:960px){
+  #top{grid-template-columns:1fr}
+  .portrait-col{padding:0 8vw 70px;order:2}
+  .menu-col{padding:96px 6vw 30px}
+  .bubble{left:-4%;bottom:6%}
+  .status-grid,.journal,.qrow,.party-intro,.arena,.cab{grid-template-columns:1fr}
+  .qlist{border-right:none;border-bottom:2px solid #6b5631;display:flex;flex-wrap:wrap;padding:10px}
+  .qlist h4{width:100%}
+  .qlist button{width:auto;padding:8px 14px 8px 32px}
+  .qlist button::before{left:12px;top:14px}
+  .qpanel{padding:24px 22px;min-height:0}
+  .qrow .photo,.arena .photo,.cab .photo,.party-intro .photo{max-width:340px}
+  .ach{grid-template-columns:1fr}
+  .party-grid{grid-template-columns:1fr}
+  .card{padding:34px 26px}
+  .hint{display:none}
+  .date{top:14px;right:14px}.date .d{font-size:38px}.date .w{font-size:15px}
+  .menu-col{padding-top:110px}
+}
+@media (max-width:520px){
+  .abil ul{grid-template-columns:1fr}
+  .stat{grid-template-columns:96px 1fr}
+  .stat .nm{font-size:19px}
+  .a{grid-template-columns:46px 1fr}.a .r{grid-column:2;text-align:left}
+  .medal{width:46px;height:46px;font-size:18px}
+  .box{font-size:10px;padding:18px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ TITLE SCREEN ============ -->
+<header id="top">
+  <div class="date" aria-hidden="true"><div class="d" id="dd">10/31</div><div class="w" id="dw">SAT · MEMPHIS</div></div>
+
+  <div class="menu-col">
+    <h1 class="ransom" data-ransom aria-label="Carson Alexander"><span class="ln">Carson</span><span class="ln">Alexander</span></h1>
+    <div class="who"><span>MEMPHIS UNIVERSITY SCHOOL · CLASS OF 2027 · COGNITIVE SCIENCE / NEUROSCIENCE</span></div>
+
+    <nav class="main" aria-label="Main menu">
+      <ul>
+        <li><a href="#status">Status <small>Stats &amp; skills</small></a></li>
+        <li><a href="#quests">Quests <small>Research &amp; builds</small></a></li>
+        <li><a href="#party">Party <small>Leadership</small></a></li>
+        <li><a href="#trophies">Trophies <small>Awards</small></a></li>
+        <li><a href="#voice">Voice <small>Speaking</small></a></li>
+        <li><a href="#records">Records <small>Track &amp; XC</small></a></li>
+        <li><a href="#contact">Calling card <small>Contact</small></a></li>
+      </ul>
+    </nav>
+    <p class="hint">USE <kbd>↑</kbd><kbd>↓</kbd> + <kbd>ENTER</kbd>, OR JUST SCROLL</p>
+  </div>
+
+  <div class="portrait-col">
+    <div class="portrait-frame">
+      <figure class="photo" data-slot="hero">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+        <b>Photo 1 · Main portrait</b>Waist-up, plain background,<br>looking slightly off-camera</div>
+      </figure>
+    </div>
+    <div class="bubble">Problem first. Discipline second. <em>Build.</em> Then ask what it cost.</div>
+  </div>
+</header>
+
+<main>
+<!-- ============ STATUS ============ -->
+<section id="status" class="section">
+  <div class="wrap">
+    <h2 class="tag"><span class="bg"></span>Status<span class="sub">Stat screen</span></h2>
+    <div class="status-grid">
+      <div class="rv">
+        <div class="card-black">
+          <dl class="kv">
+            <dt>Name</dt><dd>Philip Carson Alexander (goes by Carson)</dd>
+            <dt>School</dt><dd>Memphis University School, Memphis, TN · Class of 2027</dd>
+            <dt>Track</dt><dd>Cognitive science &amp; neuroscience, with computational biology close behind</dd>
+            <dt>ACT</dt><dd>35</dd>
+            <dt>Honors</dt><dd>Cum Laude Society (top 10% by GPA) · National Honor Society · Mu Alpha Theta</dd>
+            <dt>APs</dt><dd>14, plus Multivariable Calculus
+              <div class="course-tags">
+                <span>Calc BC (jr.)</span><span>Physics C: Mech</span><span>Chemistry</span><span>Statistics</span><span>Biology</span><span>Physics</span>
+                <span>Lang</span><span>Lit</span><span>Euro History</span><span>US History</span><span>Latin</span><span>Psychology (self-study)</span>
+              </div></dd>
+          </dl>
+        </div>
+
+        <div class="abil">
+          <h3>Abilities</h3>
+          <ul>
+            <li>Python <span>PyTorch · Pandas</span></li>
+            <li>R <span>Stats</span></li>
+            <li>JavaScript / React <span>Web</span></li>
+            <li>Interpretable ML <span>NLP</span></li>
+            <li>Latin <span>4 yrs · 4× gold</span></li>
+            <li>French · Korean <span>Learning</span></li>
+            <li>Public speaking <span>Debate · floor</span></li>
+            <li>Short-form video <span>1M+ views</span></li>
+            <li>Facilitation <span>Town halls</span></li>
+            <li>Guitar · Drums · Piano <span>Off-duty</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="stats rv">
+        <h3>Social stats</h3>
+        <div class="stat"><div class="nm">Knowledge</div><div class="pips"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></div>
+          <span></span><p>ACT 35 · 14 APs · Calc BC as a junior, Multivariable as a senior · Cum Laude</p></div>
+        <div class="stat"><div class="nm">Voice</div><div class="pips"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></div>
+          <span></span><p>Gold House Floor Leader (TN YMCA Youth in Government) · Coolidge Senator · USSYP First Alternate</p></div>
+        <div class="stat"><div class="nm">Craft</div><div class="pips"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div>
+          <span></span><p>Built Synthesis and NeuroVox from scratch in Python and JavaScript</p></div>
+        <div class="stat"><div class="nm">Endurance</div><div class="pips"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></div>
+          <span></span><p>Four years of varsity track and cross country · Nike Outdoor Nationals qualifier</p></div>
+        <div class="stat"><div class="nm">Empathy</div><div class="pips"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></div>
+          <span></span><p>Founded Facing History &amp; Ourselves across 4 schools · HOBY Junior Facilitator · Room in the Inn</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUESTS ============ -->
+<section id="quests" class="section">
+  <div class="wrap">
+    <h2 class="tag"><span class="bg"></span>Quest log<span class="sub">Research &amp; builds</span></h2>
+
+    <div class="journal rv">
+      <div class="qlist" role="tablist" aria-label="Quests">
+        <h4>Main quests</h4>
+        <button role="tab" aria-selected="true" aria-controls="q1" id="t1">NeuroVox</button>
+        <button role="tab" aria-selected="false" aria-controls="q2" id="t2" tabindex="-1">St. Jude</button>
+        <button role="tab" aria-selected="false" aria-controls="q3" id="t3" tabindex="-1">Synthesis</button>
+        <h4>Side quests</h4>
+        <button role="tab" aria-selected="false" aria-controls="q4" id="t4" tabindex="-1">Neuro reading</button>
+      </div>
+
+      <article class="qpanel" role="tabpanel" id="q1" aria-labelledby="t1">
+        <div class="kind">Main quest · Independent research</div>
+        <h3>NeuroVox</h3>
+        <div class="meta">Dec 2025 – Mar 2026 · Interpretable NLP</div>
+        <div class="qrow">
+          <div>
+            <p>An interpretable machine-learning framework that identifies linguistic markers of depression-related language, built so a person can see <em>why</em> the model flagged a passage, not just that it did.</p>
+            <ul class="obj">
+              <li class="done">Build a first classifier on depression-related text</li>
+              <li class="fail">v1 produced false positives</li>
+              <li class="done">Diagnose and fix them: <span class="todo">Carson: one sentence on what was wrong and what you changed</span></li>
+              <li class="done">Make the model's reasoning readable to a non-specialist</li>
+            </ul>
+            <a class="repo" href="https://github.com/xcarsona/NeuroVox">github.com/xcarsona/NeuroVox →</a>
+          </div>
+          <figure class="photo" data-slot="research"><div><b>Photo 2 · Research</b>At a laptop, whiteboard, or the lab</div></figure>
+        </div>
+      </article>
+
+      <article class="qpanel" role="tabpanel" id="q2" aria-labelledby="t2" hidden>
+        <div class="kind">Main quest · Selected program</div>
+        <h3>St. Jude Children's Research Hospital</h3>
+        <div class="meta">Summer 2026 · High School Research Immersion</div>
+        <p>Selected for St. Jude's High School Research Immersion program, working with a faculty mentor in hematology on sickle cell disease.</p>
+        <ul class="obj">
+          <li class="done">Selected for the program</li>
+          <li class="done">Research with a St. Jude faculty mentor</li>
+          <li class="done">Project: <span class="todo">Carson: one line on the question you worked on</span></li>
+        </ul>
+        <div class="reward">◆ Field: Hematology · Sickle cell disease</div>
+      </article>
+
+      <article class="qpanel" role="tabpanel" id="q3" aria-labelledby="t3" hidden>
+        <div class="kind">Main quest · Founder</div>
+        <h3>Synthesis</h3>
+        <div class="meta">May 2026 – present · AI-powered opportunity platform</div>
+        <p>A searchable platform that matches students to scholarships, research programs, internships, and competitions, so finding opportunities doesn't depend on who you already know.</p>
+        <ul class="obj">
+          <li class="done">Curate 1,000+ opportunities into a searchable database</li>
+          <li class="done">Personalized opportunity matching</li>
+          <li class="done">500+ student users<span class="verify">verify before launch</span></li>
+        </ul>
+        <div class="reward">◆ Link: <span class="todo">add the Synthesis URL</span></div>
+      </article>
+
+      <article class="qpanel" role="tabpanel" id="q4" aria-labelledby="t4" hidden>
+        <div class="kind">Side quests · Ongoing</div>
+        <h3>Reading the field</h3>
+        <div class="meta">2025 – present</div>
+        <ul class="obj">
+          <li class="done"><b>Stanford Neuroscience Journal Club</b>: selected high school member; weekly reviews and presentations of peer-reviewed papers</li>
+          <li class="done"><b>Algoverse AI Research</b> (summer 2025): algorithm development and ethical AI deployment</li>
+          <li class="done"><b>ThinkNeuro</b>: neuroscience research program</li>
+          <li class="done"><b>AI &amp; Ethics Club</b>: talks with practitioners on what AI does to business, politics, and technology</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARTY ============ -->
+<section id="party" class="section">
+  <div class="wrap">
+    <div class="party-intro">
+      <div>
+        <h2 class="tag"><span class="bg"></span>Party<span class="sub" style="color:#ffe27a">Leadership</span></h2>
+        <p class="lede">Most of this I built inside organizations that already existed. Each card shows how the role grew and the one thing I made that wasn't there before.</p>
+      </div>
+      <figure class="photo" data-slot="leadership"><div><b>Photo 3 · Leadership</b>Running a BRIDGES town hall or a TJCL event</div></figure>
+    </div>
+
+    <div class="party-grid">
+      <div class="win member rv">
+        <h3>BRIDGES USA</h3>
+        <div class="cls"><span>Youth Advisory Board Chair</span><span>Paid role</span></div>
+        <div class="lvl"><span>Member '23</span><b>▸</b><span class="now">Chair '25</span></div>
+        <div class="sig">Signature move</div>
+        <p>Redesigned the town-hall feedback instrument used with 100+ students every semester. His board's input shapes the summer curriculum.</p>
+        <div class="hpbar"><i style="width:100%"></i></div><div class="hplab"><span>4 YEARS</span><span>ACTIVE</span></div>
+      </div>
+
+      <div class="win member rv">
+        <h3>Tennessee Junior Classical League</h3>
+        <div class="cls"><span>State President</span><span>500+ members</span></div>
+        <div class="lvl"><span>1st VP '25</span><b>▸</b><span class="now">President '26</span></div>
+        <div class="sig">Signature move</div>
+        <p>Designed and launched the league's first year-round program: statewide Connect Calls, virtual certamen, and Instagram contests. Also MUS Latin Club President.</p>
+        <div class="hpbar"><i style="width:100%"></i></div><div class="hplab"><span>4× NLE GOLD</span><span>ACTIVE</span></div>
+      </div>
+
+      <div class="win member rv">
+        <h3>Government Club · Youth in Government</h3>
+        <div class="cls"><span>President · Gold House Floor Leader</span></div>
+        <div class="lvl"><span>Member '23</span><b>▸</b><span>Floor Leader '25</span><b>▸</b><span class="now">President '26</span></div>
+        <div class="sig">Signature move</div>
+        <p>As a junior, designed a committee's full process for the school's in-house Model UN conference. Now runs and expands it.</p>
+        <div class="hpbar"><i style="width:100%"></i></div><div class="hplab"><span>2× OUTSTANDING STATESPERSON</span><span>ACTIVE</span></div>
+      </div>
+
+      <div class="win member rv">
+        <h3>DECA</h3>
+        <div class="cls"><span>National Content Creator</span><span>Selected nationally</span></div>
+        <div class="lvl"><span>Member '23</span><b>▸</b><span class="now">Creator · VP '25</span></div>
+        <div class="sig">Signature move</div>
+        <p>Introduced short-form video to the program: 1M+ views and 100K+ interactions across DECA's channels.</p>
+        <div class="hpbar"><i style="width:100%"></i></div><div class="hplab"><span>1M+ VIEWS</span><span>ACTIVE</span></div>
+      </div>
+
+      <div class="win member rv">
+        <h3>Facing History · Black History Club</h3>
+        <div class="cls"><span>Founder · President</span><span>4 schools</span></div>
+        <div class="lvl"><span>Founded '24</span><b>▸</b><span class="now">50+ members</span></div>
+        <div class="sig">Signature move</div>
+        <p>Founded a Facing History &amp; Ourselves chapter across four schools. As Black History Club president, built the annual chapel program and off-campus events.</p>
+        <div class="hpbar"><i style="width:100%"></i></div><div class="hplab"><span>BHM CHAPEL 2025</span><span>ACTIVE</span></div>
+      </div>
+
+      <div class="win member rv">
+        <h3>Tennessee Mu Alpha Theta</h3>
+        <div class="cls"><span>State Treasurer</span></div>
+        <div class="lvl"><span>Member '24</span><b>▸</b><span class="now">Treasurer '26</span></div>
+        <div class="sig">Signature move</div>
+        <p>Rebuilt the convention budget after funds went unspent, and is leading outreach to revive inactive chapters.</p>
+        <div class="hpbar"><i style="width:100%"></i></div><div class="hplab"><span>2× TMTA REGIONAL 2ND</span><span>ACTIVE</span></div>
+      </div>
+    </div>
+
+    <div class="win rv" style="margin-top:18px">
+      <div class="sig" style="font:800 11px var(--body);letter-spacing:.18em;color:#9fe8ff;margin-bottom:6px">RESERVE PARTY</div>
+      <p style="font-size:14.5px">STEMsters (Corporate Outreach Officer) · HOBY (Ambassador, then Junior Facilitator for 100+ students) · Room in the Inn (Media Intern) · Civic Service Organization (100+ hours) · MUS Student Ambassador</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TROPHIES ============ -->
+<section id="trophies" class="section">
+  <div class="wrap">
+    <h2 class="tag"><span class="bg"></span>Trophies<span class="sub">Awards &amp; honors</span></h2>
+    <div class="trophy-sum rv"><div class="big">12</div><div style="font-weight:800;letter-spacing:.14em;font-size:12px;color:#a9b2bc">UNLOCKED</div><div class="bar"><i></i></div></div>
+
+    <div class="ach">
+      <div class="a rv"><div class="medal plat">★</div><div><h4>Coolidge Senator</h4><p>Calvin Coolidge Foundation · top 100 of 4,000+ applicants</p></div><div class="r">~2.5%<small>OF APPLICANTS</small></div></div>
+      <div class="a rv"><div class="medal plat">★</div><div><h4>U.S. Senate Youth Program</h4><p>First Alternate, Tennessee</p></div><div class="r">STATE<small>SELECTION</small></div></div>
+      <div class="a rv"><div class="medal">4×</div><div><h4>National Latin Exam Gold</h4><p>Four consecutive years, grades 8–11</p></div><div class="r">GOLD<small>2023–26</small></div></div>
+      <div class="a rv"><div class="medal">◆</div><div><h4>Cum Laude Society</h4><p>Top 10% of class by GPA</p></div><div class="r">2026</div></div>
+      <div class="a rv"><div class="medal">◆</div><div><h4>National Merit Semifinalist <span class="verify">verify</span></h4><p>From the one-page resume; confirm before publishing</p></div><div class="r">2026</div></div>
+      <div class="a rv"><div class="medal">✎</div><div><h4>UVA Book Award</h4><p>University of Virginia</p></div><div class="r">2026</div></div>
+      <div class="a rv"><div class="medal silver">✦</div><div><h4>Princeton Prize in Race Relations</h4><p>Certificate of Achievement</p></div><div class="r">2026</div></div>
+      <div class="a rv"><div class="medal silver">2×</div><div><h4>Outstanding Statesperson</h4><p>TN YMCA Youth in Government, plus Outstanding Bill</p></div><div class="r">YIG</div></div>
+      <div class="a rv"><div class="medal silver">◎</div><div><h4>Model UN</h4><p>Outstanding Delegate (American U.) · Honorable Mention (Vanderbilt)</p></div><div class="r">MUN</div></div>
+      <div class="a rv"><div class="medal silver">2×</div><div><h4>TMTA West Region, 2nd place</h4><p>Calculus (2026) · Algebra II (2024)</p></div><div class="r">MATH</div></div>
+      <div class="a rv"><div class="medal bronze">✒</div><div><h4>ACT-SO Regional</h4><p>Essay Finalist · Poetry Semifinalist</p></div><div class="r">2025</div></div>
+      <div class="a rv"><div class="medal bronze">♥</div><div><h4>President's Volunteer Service Award</h4><p>Recognized service hours</p></div><div class="r">2025</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VOICE ============ -->
+<section id="voice" class="section">
+  <div class="wrap">
+    <h2 class="tag"><span class="bg"></span>Voice<span class="sub" style="color:#c4141f">Speaking &amp; debate</span></h2>
+    <div class="arena">
+      <div>
+        <div class="box rv"><span class="who2">CARSON</span> took the floor!<span class="eff">As Gold House Floor Leader, TN YMCA Youth in Government.</span>
+          <span class="body">Drafted and debated legislation at the state conference: 2× Outstanding Statesperson and an Outstanding Bill.</span></div>
+        <div class="box rv"><span class="who2">CARSON</span> led the chapel!<span class="eff">Black History Month Chapel, 2025.</span>
+          <span class="body">Wrote and presented a school-wide program on cultural representation in media.</span></div>
+        <div class="box rv"><span class="who2">CARSON</span> joined the Senate!<span class="eff">Calvin Coolidge Foundation Senator.</span>
+          <span class="body">One of 100 Coolidge Senators chosen from 4,000+ applicants.</span></div>
+        <div class="box rv"><span class="who2">CARSON</span> ran the room!<span class="eff">BRIDGES town halls · HOBY seminars.</span>
+          <span class="body">Facilitates town halls for 100+ students a semester and taught leadership as a HOBY Junior Facilitator.</span></div>
+        <div class="box rv"><span class="who2">CARSON</span> went national!<span class="eff">It's super effective: 1M+ views.</span>
+          <span class="body">DECA National Content Creator, writing and filming short-form video for a national audience.</span></div>
+      </div>
+      <div>
+        <figure class="photo" data-slot="speaking"><div><b>Photo 4 · Speaking</b>YIG podium or the BHM chapel program</div></figure>
+        <div class="hpcard"><div class="row"><span>CARSON</span><span>Lv.MAX</span></div><div class="hp"><i></i></div><div class="row"><span>MOVES</span><span>5/5</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECORDS ============ -->
+<section id="records" class="section">
+  <div class="wrap">
+    <h2 class="tag"><span class="bg"></span>Records<span class="sub" style="color:var(--teal)">Track &amp; cross country</span></h2>
+    <div class="cab">
+      <div class="hs rv">
+        <h3>HIGH SCORES</h3>
+        <table>
+          <thead><tr><th>EVENT</th><th style="text-align:right">RESULT</th></tr></thead>
+          <tbody>
+            <tr><td>NIKE OUTDOOR NATIONALS</td><td>QUALIFIER</td></tr>
+            <tr><td>DAILY MEMPHIAN ALL-METRO</td><td>2×</td></tr>
+            <tr><td>4×800 RELAY · STATE / REGION (10TH)</td><td>2ND · 8TH</td></tr>
+            <tr><td>4×800 RELAY · STATE / REGION (9TH)</td><td>2ND · 7TH</td></tr>
+            <tr><td>XC STATE CHAMPIONSHIPS</td><td>EVERY SEASON</td></tr>
+            <tr><td>VARSITY YEARS</td><td>4</td></tr>
+          </tbody>
+        </table>
+        <p class="insert">CONTINUE? ▸ PRESS START</p>
+      </div>
+      <figure class="photo" data-slot="track"><div><b>PHOTO 5 · TRACK</b>Any race shot, ideally mid-stride</div></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CALLING CARD ============ -->
+<section id="contact" class="section">
+  <div class="wrap">
+    <div class="card rv">
+      <h2 class="ransom" data-ransom aria-label="A calling card"><span class="ln">A calling</span><span class="ln">card</span></h2>
+      <p>To the admissions reader who scrolled this far: thank you for your time. I'd like to talk about how I think, not just what I've done.</p>
+      <p>Find my code, my work, and me here.</p>
+      <div class="links">
+        <a href="https://github.com/xcarsona"><span>GitHub</span></a>
+        <a href="https://www.linkedin.com/in/philip-alexander-379623351"><span>LinkedIn</span></a>
+        <a href="mailto:carson.alexander1@outlook.com"><span>Email</span></a>
+      </div>
+      <p class="mail">carson.alexander1@outlook.com</p>
+      <div class="sign">— Carson</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  © 2026 Carson Alexander · Made in plain HTML &amp; CSS · An original fan homage to RPG menu design. Not affiliated with or endorsed by any game publisher; all art here is original.
+</footer>
+
+<a class="back" href="#top" id="back">◂ MENU</a>
+
+<script>
+(()=>{
+  // Ransom-note letters (deterministic, so it looks the same every load)
+  const styles=[["#fff","#0b0b0b"],["#0b0b0b","#fff"],["#e3001b","#fff"],["#fff","#e3001b"],["#fafafa","#0b0b0b"]];
+  let s=7; const rnd=()=>{s=(s*9301+49297)%233280;return s/233280};
+  document.querySelectorAll('[data-ransom] .ln').forEach(ln=>{
+    const t=ln.textContent; ln.textContent=''; ln.setAttribute('aria-hidden','true');
+    [...t].forEach(c=>{
+      const sp=document.createElement('span');
+      if(c===' '){sp.innerHTML='&nbsp;';sp.style.display='inline-block';sp.style.width='.3em';ln.appendChild(sp);return}
+      const [bg,fg]=styles[Math.floor(rnd()*styles.length)];
+      sp.className='ch'; sp.textContent=c;
+      sp.style.cssText=`background:${bg};color:${fg};transform:rotate(${(rnd()*14-7).toFixed(1)}deg) translateY(${(rnd()*8-4).toFixed(0)}px);font-size:${(0.85+rnd()*0.3).toFixed(2)}em`;
+      ln.appendChild(sp);
+    });
+  });
+
+  // Live date in the corner, Persona-calendar style
+  const d=new Date(), days=['SUN','MON','TUE','WED','THU','FRI','SAT'];
+  document.getElementById('dd').textContent=(d.getMonth()+1)+'/'+d.getDate();
+  document.getElementById('dw').textContent=days[d.getDay()]+' · MEMPHIS';
+
+  // Keyboard menu
+  const items=[...document.querySelectorAll('nav.main a')]; let idx=0;
+  const mark=i=>{items.forEach(a=>a.classList.remove('on'));items[i].classList.add('on');items[i].focus({preventScroll:true})};
+  document.addEventListener('keydown',e=>{
+    if(window.scrollY>window.innerHeight*.6) return;
+    if(e.key==='ArrowDown'){e.preventDefault();idx=(idx+1)%items.length;mark(idx)}
+    else if(e.key==='ArrowUp'){e.preventDefault();idx=(idx-1+items.length)%items.length;mark(idx)}
+  });
+  items.forEach((a,i)=>a.addEventListener('mouseenter',()=>{idx=i;items.forEach(x=>x.classList.remove('on'))}));
+
+  // Quest tabs
+  const tabs=[...document.querySelectorAll('[role=tab]')];
+  const pick=t=>{tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on})};
+  tabs.forEach((t,i)=>{t.addEventListener('click',()=>pick(t));
+    t.addEventListener('keydown',e=>{let j=null;if(e.key==='ArrowDown'||e.key==='ArrowRight')j=(i+1)%tabs.length;if(e.key==='ArrowUp'||e.key==='ArrowLeft')j=(i-1+tabs.length)%tabs.length;if(j!==null){e.preventDefault();pick(tabs[j]);tabs[j].focus()}})});
+
+  // Reveal on scroll + back button
+  const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}}),{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  const back=document.getElementById('back');
+  addEventListener('scroll',()=>back.classList.toggle('show',scrollY>innerHeight*.8),{passive:true});
+})();
+</script>
+</body>
+</html>
