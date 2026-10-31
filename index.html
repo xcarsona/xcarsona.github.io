@@ -40,6 +40,7 @@ img{max-width:100%;display:block}
 .photo{position:relative;background:#1c1c1c;overflow:hidden;display:grid;place-items:center;text-align:center;color:#bbb;
   border:2px dashed #555;font:700 12px/1.4 var(--body);letter-spacing:.12em;text-transform:uppercase;padding:14px}
 .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo.has{border:none;padding:0}
 .photo b{display:block;color:var(--white);font-size:14px;margin-bottom:6px}
 .photo svg{width:48px;height:48px;margin:0 auto 10px;opacity:.6}
 
@@ -333,14 +334,14 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
 
   <div class="stage">
     <div class="hero-photo" aria-hidden="true">
-      <figure class="photo ph on" data-for="default"><div><b>Photo · Main portrait</b>Waist-up, plain background</div></figure>
+      <figure class="photo ph on has" data-for="default"><img src="img/leadership-wheel.jpg" alt="" fetchpriority="high" decoding="async"></figure>
       <figure class="photo ph" data-for="status"><div><b>Photo · Status</b>Clean headshot</div></figure>
       <figure class="photo ph" data-for="quests"><div><b>Photo · Quests</b>At St. Jude or a laptop</div></figure>
-      <figure class="photo ph" data-for="party"><div><b>Photo · Party</b>Leading a BRIDGES / TJCL event</div></figure>
+      <figure class="photo ph has" data-for="party"><img src="img/leadership-wheel.jpg" alt="" loading="lazy" decoding="async"></figure>
       <figure class="photo ph" data-for="trophies"><div><b>Photo · Trophies</b>Holding an award or medal</div></figure>
-      <figure class="photo ph" data-for="voice"><div><b>Photo · Voice</b>At a podium, mid-speech</div></figure>
+      <figure class="photo ph has" data-for="voice"><img src="img/speaking-wheel.jpg" alt="" loading="lazy" decoding="async"></figure>
       <figure class="photo ph" data-for="records"><div><b>Photo · Records</b>Mid-race</div></figure>
-      <figure class="photo ph" data-for="media"><div><b>Photo · Media</b>Hero pose, or filming content</div></figure>
+      <figure class="photo ph has" data-for="media"><img src="img/media-wheel.jpg" alt="" loading="lazy" decoding="async"></figure>
       <figure class="photo ph" data-for="contact"><div><b>Photo · Calling card</b>Fun or casual shot</div></figure>
     </div>
 
@@ -501,7 +502,7 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
         <h2 class="tag"><span class="bg"></span>Party<span class="sub" style="color:#ffe27a">Leadership</span></h2>
         <p class="lede">Most of this I built inside organizations that already existed. Each card shows how the role grew and the one thing I made that wasn't there before.</p>
       </div>
-      <figure class="photo" data-slot="leadership"><div><b>Photo 3 · Leadership</b>Running a BRIDGES town hall or a TJCL event</div></figure>
+      <figure class="photo has" data-slot="leadership"><img src="img/leadership-wide.jpg" alt="Carson with Tennessee Junior Classical League members at the 2026 state convention" loading="lazy" decoding="async"></figure>
     </div>
 
     <div class="party-grid">
@@ -606,7 +607,7 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
           <span class="body">Facilitates town halls for 100+ students a semester and taught leadership as a HOBY Junior Facilitator.</span></div>
       </div>
       <div>
-        <figure class="photo" data-slot="speaking"><div><b>Photo 4 · Speaking</b>YIG podium or the BHM chapel program</div></figure>
+        <figure class="photo has" data-slot="speaking"><img src="img/speaking-sq.jpg" alt="Carson speaking at a BRIDGES event podium" loading="lazy" decoding="async"></figure>
         <div class="hpcard"><div class="row"><span>CARSON</span><span>Lv.MAX</span></div><div class="hp"><i></i></div><div class="row"><span>MOVES</span><span>4/4</span></div></div>
       </div>
     </div>
@@ -620,7 +621,7 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
     <div class="cover">
       <div class="panel hero-pic rv">
         <div class="issue">ISSUE #1</div>
-        <figure class="photo" data-slot="media"><div><b>Photo · Media</b>Filming or editing content, phone or camera in hand</div></figure>
+        <figure class="photo has" data-slot="media"><img src="img/media-wide.jpg" alt="Carson from behind in a Spider-Man suit at the track" loading="lazy" decoding="async"></figure>
         <div class="pow">1M+<small>VIEWS</small></div>
       </div>
       <div class="panel rv">
