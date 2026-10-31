@@ -212,15 +212,24 @@ img{max-width:100%;display:block}
 .a .r small{display:block;color:#79828c;font-weight:700;letter-spacing:.06em}
 
 /* party: battle log (speaking) */
-.battle{display:grid;grid-template-columns:1fr;gap:18px;margin-top:34px;align-items:start}
-.battle h3{grid-column:1/-1;font-family:var(--display);font-size:34px;text-transform:uppercase;letter-spacing:.02em;display:flex;align-items:center;gap:14px}
-.battle h3::after{content:"";flex:1;height:3px;background:#dfe6ff;opacity:.5}
-.blog{display:grid;gap:10px}
-.blog .win{padding:14px 18px}
-.blog .act{font:800 13px var(--body);letter-spacing:.08em;text-transform:uppercase;color:#ffe27a}
-.blog .act b{color:#fff}
-.blog p{font-size:14.5px;color:#e8ecff;margin-top:4px}
-.battle .photo{aspect-ratio:1/1;border:3px solid #dfe6ff;border-radius:10px}
+.battle{position:relative;margin-top:40px;background:#d8f0d0;color:#1b1b1b;border:4px solid #1b1b1b;border-radius:12px;box-shadow:8px 8px 0 #000;padding:28px 28px 20px;font-family:'Press Start 2P',monospace;
+  background-image:linear-gradient(#cfe8c6 2px,transparent 2px);background-size:100% 8px}
+.battle h3{font:14px 'Press Start 2P',monospace;letter-spacing:.04em;margin-bottom:20px;display:flex;align-items:center;gap:14px;color:#1b1b1b}
+.battle h3::after{content:"";flex:1;height:4px;background:repeating-linear-gradient(90deg,#1b1b1b 0 8px,transparent 8px 12px)}
+.arena{display:grid;grid-template-columns:1fr 250px;gap:24px;align-items:start}
+.blog{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.box{background:#fff;border:4px solid #1b1b1b;border-radius:10px;box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 7px #4a8fd6;padding:20px 22px 24px;position:relative;font-size:11px;line-height:2}
+.box .who2{color:#c4141f}
+.box .eff{display:block;margin-top:6px;color:#2a6a2a}
+.box .body{font-family:var(--body);font-size:14.5px;line-height:1.55;display:block;margin-top:8px;color:#222}
+.box::after{content:"▼";position:absolute;right:14px;bottom:8px;font-size:10px;color:#c4141f;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hpcard{background:#fff;border:4px solid #1b1b1b;border-radius:0 18px 0 18px;padding:14px 16px;font-size:10px;line-height:1.8}
+.hpcard .row{display:flex;justify-content:space-between}
+.hpcard .hp{height:8px;border:2px solid #1b1b1b;margin:6px 0;background:#eee}
+.hpcard .hp i{display:block;height:100%;width:100%;background:#3fbf4a}
+.hpcard + .hpcard{margin-top:12px}
+@media (max-width:960px){.arena,.blog{grid-template-columns:1fr}.battle{padding:20px 16px}.box{font-size:10px}}
 
 /* ================= 6c. SERVICE (cozy life-sim community board) ================= */
 #service{background:#3f7d3a;color:#2b1d10}
@@ -244,7 +253,7 @@ img{max-width:100%;display:block}
 .note .rw{margin-top:8px;font:9px/1.6 'Press Start 2P',monospace;color:#3f7d3a}
 .svc-row{display:grid;grid-template-columns:1fr 300px;gap:26px;align-items:start}
 .svc-row .photo{aspect-ratio:3/4;border:6px solid #5c3a1a;background:#2f5e2b;color:#e6f3d8}
-@media (max-width:960px){.battle,.svc-row{grid-template-columns:1fr}.battle .photo,.svc-row .photo{max-width:340px}}
+@media (max-width:960px){.svc-row{grid-template-columns:1fr}.svc-row .photo{max-width:340px}}
 
 /* ================= 6b. MEDIA (comic-book hero) ================= */
 #media{background:#ffe14d;color:#111;overflow:hidden}
@@ -609,13 +618,19 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
       </div>
     </div>
 
-    <div class="battle">
-      <h3>Battle log · Speaking</h3>
-      <div class="blog">
-        <div class="win rv"><div class="act"><b>Carson</b> took the floor</div><p>Gold House Floor Leader, TN YMCA Youth in Government. Drafted and debated legislation: 2× Outstanding Statesperson and an Outstanding Bill.</p></div>
-        <div class="win rv"><div class="act"><b>Carson</b> led the chapel</div><p>Black History Month Chapel, 2025. Wrote and presented a school-wide program on cultural representation in media.</p></div>
-        <div class="win rv"><div class="act"><b>Carson</b> ran the room</div><p>Facilitates BRIDGES town halls for 100+ students a semester.</p></div>
-        <div class="win rv"><div class="act"><b>Carson</b> joined the Senate</div><p>One of 100 Coolidge Senators chosen from 4,000+ applicants.</p></div>
+    <div class="battle rv">
+      <h3>BATTLE LOG · SPEAKING</h3>
+      <div class="arena">
+        <div class="blog">
+          <div class="box"><span class="who2">CARSON</span> took the floor!<span class="eff">Gold House Floor Leader.</span><span class="body">TN YMCA Youth in Government. Drafted and debated legislation: 2× Outstanding Statesperson and an Outstanding Bill.</span></div>
+          <div class="box"><span class="who2">CARSON</span> led the chapel!<span class="eff">Black History Month, 2025.</span><span class="body">Wrote and presented a school-wide program on cultural representation in media.</span></div>
+          <div class="box"><span class="who2">CARSON</span> ran the room!<span class="eff">BRIDGES town halls.</span><span class="body">Facilitates town halls for 100+ students every semester.</span></div>
+          <div class="box"><span class="who2">CARSON</span> joined the Senate!<span class="eff">It's super effective.</span><span class="body">One of 100 Coolidge Senators chosen from 4,000+ applicants.</span></div>
+        </div>
+        <div>
+          <div class="hpcard"><div class="row"><span>CARSON</span><span>Lv.MAX</span></div><div class="hp"><i></i></div><div class="row"><span>MOVES</span><span>4/4</span></div></div>
+          <div class="hpcard"><div class="row"><span>AUDIENCE</span><span>100+</span></div><div class="hp"><i style="background:#f5c542"></i></div><div class="row"><span>STATUS</span><span>HYPED</span></div></div>
+        </div>
       </div>
     </div>
   </div>
