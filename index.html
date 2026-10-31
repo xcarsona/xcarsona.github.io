@@ -41,6 +41,8 @@ img{max-width:100%;display:block}
   border:2px dashed #555;font:700 12px/1.4 var(--body);letter-spacing:.12em;text-transform:uppercase;padding:14px}
 .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .photo.has{border:none;padding:0}
+.photo.cutout{background:transparent!important;border:none!important;box-shadow:none!important;overflow:visible}
+.photo.cutout img{object-fit:contain;object-position:50% 100%;filter:drop-shadow(10px 10px 0 rgba(0,0,0,.35))}
 .photo b{display:block;color:var(--white);font-size:14px;margin-bottom:6px}
 .photo svg{width:48px;height:48px;margin:0 auto 10px;opacity:.6}
 
@@ -66,9 +68,10 @@ img{max-width:100%;display:block}
 .date .w{display:inline-block;background:var(--white);color:var(--black);font-size:18px;padding:3px 12px;margin-top:4px;transform:skewX(-12deg)}
 
 .stage{position:relative;z-index:4;flex:1;width:min(1180px,100%);margin:0 auto 34px;min-height:620px}
-.hero-photo{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:clamp(240px,25vw,330px);aspect-ratio:3/4}
-.hero-photo::before{content:"";position:absolute;inset:-22px;background:var(--black);clip-path:polygon(50% 0,62% 14%,82% 4%,80% 24%,100% 30%,86% 46%,100% 64%,80% 70%,84% 94%,62% 84%,50% 100%,38% 86%,16% 96%,20% 72%,0 64%,14% 48%,0 30%,20% 26%,16% 4%,38% 14%)}
-.hero-photo .ph{position:absolute;inset:0;opacity:0;transition:opacity .22s,transform .22s;transform:scale(.97);clip-path:polygon(6% 2%,96% 0,100% 96%,2% 100%);border:none;background:#262626}
+.hero-photo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(250px,26vw,340px);aspect-ratio:3/4}
+.hero-photo::before{content:"";position:absolute;inset:4% 0 -4%;background:var(--black);clip-path:polygon(50% 0,62% 14%,82% 4%,80% 24%,100% 30%,86% 46%,100% 64%,80% 70%,84% 94%,62% 84%,50% 100%,38% 86%,16% 96%,20% 72%,0 64%,14% 48%,0 30%,20% 26%,16% 4%,38% 14%)}
+.hero-photo .ph{position:absolute;inset:-6% -14% 0;opacity:0;transition:opacity .22s,transform .22s;transform:translateX(-12px) scale(.97)}
+.hero-photo .ph img{width:100%;height:100%;object-fit:contain;object-position:50% 100%;filter:drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff) drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff) drop-shadow(12px 10px 0 rgba(0,0,0,.85))}
 .hero-photo .ph.on{opacity:1;transform:none}
 .hero-photo .ph b{font-size:13px}
 .ring{position:absolute;inset:0;list-style:none}
@@ -158,6 +161,9 @@ img{max-width:100%;display:block}
 .party-intro .photo{aspect-ratio:4/3;border:3px solid #dfe6ff;border-radius:10px;background:#0f2163;color:#aab8ff}
 .win{background:linear-gradient(180deg,#2340a8,#0f2163);border:3px solid #dfe6ff;border-radius:10px;box-shadow:inset 0 0 0 2px #0a1648,0 10px 24px rgba(0,0,0,.4);padding:20px 22px}
 .party-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px}
+.snaps{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:-4px -4px 14px}
+.snaps img{width:100%;aspect-ratio:4/3;object-fit:cover;border:2px solid #dfe6ff;border-radius:6px}
+.snaps img:only-child{grid-column:1/-1;aspect-ratio:16/9}
 .member h3{font-family:var(--display);font-size:26px;letter-spacing:.02em;text-transform:uppercase;line-height:1.05}
 .member .cls{display:flex;justify-content:space-between;align-items:baseline;font:700 12px var(--body);letter-spacing:.16em;color:#ffe27a;text-transform:uppercase;margin:6px 0 10px}
 .lvl{display:flex;gap:4px;align-items:center;margin-bottom:12px;font:700 11px var(--body);color:#c8d2ff;flex-wrap:wrap}
@@ -174,6 +180,8 @@ img{max-width:100%;display:block}
 #trophies{background:#101215;color:#e9eef2}
 #trophies .tag{color:#fff}
 #trophies .tag .bg{background:#000;outline:3px solid var(--red)}
+.troph-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+.troph-head .photo{width:200px;height:300px;flex:none;margin-bottom:-10px}
 .trophy-sum{display:flex;gap:28px;align-items:center;margin-bottom:26px;flex-wrap:wrap}
 .trophy-sum .big{font-family:var(--display);font-size:64px;line-height:1;color:var(--gold)}
 .trophy-sum .bar{flex:1;min-width:220px;height:10px;background:#2a2e35;border-radius:5px;overflow:hidden}
@@ -351,15 +359,15 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
 
   <div class="stage">
     <div class="hero-photo" aria-hidden="true">
-      <figure class="photo ph on has" data-for="default"><img src="img/track.jpg" alt="" fetchpriority="high" decoding="async"></figure>
-      <figure class="photo ph" data-for="status"><div><b>Photo · Status</b>Clean headshot</div></figure>
-      <figure class="photo ph" data-for="quests"><div><b>Photo · Quests</b>At St. Jude or a laptop</div></figure>
-      <figure class="photo ph has" data-for="party"><img src="img/leadership-wheel.jpg" alt="" loading="lazy" decoding="async"></figure>
-      <figure class="photo ph" data-for="trophies"><div><b>Photo · Trophies</b>Holding an award or medal</div></figure>
-      <figure class="photo ph" data-for="service"><div><b>Photo · Service</b>Food distribution, HOBY, or STEMsters</div></figure>
-      <figure class="photo ph has" data-for="records"><img src="img/track.jpg" alt="" loading="lazy" decoding="async"></figure>
-      <figure class="photo ph has" data-for="media"><img src="img/media-wheel.jpg" alt="" loading="lazy" decoding="async"></figure>
-      <figure class="photo ph" data-for="contact"><div><b>Photo · Calling card</b>Fun or casual shot</div></figure>
+      <figure class="ph cut on" data-for="default"><img src="img/cut-track.webp" alt="" fetchpriority="high" decoding="async"></figure>
+      <figure class="ph cut" data-for="status"><img src="img/cut-status.webp" alt="" loading="lazy" decoding="async"></figure>
+      <figure class="ph cut" data-for="quests"><img src="img/cut-research.webp" alt="" loading="lazy" decoding="async"></figure>
+      <figure class="ph cut" data-for="party"><img src="img/cut-party.webp" alt="" loading="lazy" decoding="async"></figure>
+      <figure class="ph cut" data-for="trophies"><img src="img/cut-awards.webp" alt="" loading="lazy" decoding="async"></figure>
+      <figure class="ph cut" data-for="service"><img src="img/cut-service.webp" alt="" loading="lazy" decoding="async"></figure>
+      <figure class="ph cut" data-for="records"><img src="img/cut-track.webp" alt="" loading="lazy" decoding="async"></figure>
+      <figure class="ph cut" data-for="media"><img src="img/cut-media.webp" alt="" loading="lazy" decoding="async"></figure>
+      <figure class="ph cut" data-for="contact"><img src="img/cut-speaking.webp" alt="" loading="lazy" decoding="async"></figure>
     </div>
 
     <nav aria-label="Main menu">
@@ -455,7 +463,7 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
         <div class="kind">Main quest · Independent research</div>
         <h3>NeuroVox</h3>
         <div class="meta">Dec 2025 – Mar 2026 · Interpretable NLP</div>
-        <div class="qrow">
+        <div>
           <div>
             <p>An interpretable machine-learning framework that identifies linguistic markers of depression-related language, built so a person can see <em>why</em> the model flagged a passage, not just that it did.</p>
             <ul class="obj">
@@ -466,7 +474,6 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
             </ul>
             <a class="repo" href="https://github.com/xcarsona/NeuroVox">github.com/xcarsona/NeuroVox →</a>
           </div>
-          <figure class="photo" data-slot="research"><div><b>Photo 2 · Research</b>At a laptop, whiteboard, or the lab</div></figure>
         </div>
       </article>
 
@@ -474,13 +481,20 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
         <div class="kind">Main quest · Selected program</div>
         <h3>St. Jude Children's Research Hospital</h3>
         <div class="meta">Summer 2026 · High School Research Immersion</div>
-        <p>Selected for St. Jude's High School Research Immersion program, working with a faculty mentor in hematology on sickle cell disease.</p>
-        <ul class="obj">
-          <li class="done">Selected for the program</li>
-          <li class="done">Research with a St. Jude faculty mentor</li>
-          <li class="done">Project: <span class="todo">Carson: one line on the question you worked on</span></li>
-        </ul>
-        <div class="reward">◆ Field: Hematology · Sickle cell disease</div>
+        <div class="qrow">
+          <div>
+            <p>Selected for St. Jude's High School Research Immersion program. Worked in the McKinney-Freeman Lab, Department of Hematology.</p>
+            <p><b style="color:#fff3d6">Poster:</b> <em>Exploring telomere damage and cellular stress in hematopoietic stem cells derived from sickle cell disease.</em></p>
+            <ul class="obj">
+              <li class="done">Selected for the program</li>
+              <li class="done">Compared telomere damage in long-term blood stem cells from sickle cell and wild-type mice (Townes model)</li>
+              <li class="done">Methods: Western blot and telomere-associated foci (TAF) imaging</li>
+              <li class="done">Presented the poster with co-authors from the lab</li>
+            </ul>
+            <div class="reward">◆ Field: Hematology · Sickle cell disease</div>
+          </div>
+          <figure class="photo has cutout" data-slot="research"><img src="img/cut-research.webp" alt="Carson presenting his St. Jude research poster" loading="lazy" decoding="async"></figure>
+        </div>
       </article>
 
       <article class="qpanel" role="tabpanel" id="q3" aria-labelledby="t3" hidden>
@@ -519,7 +533,7 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
         <h2 class="tag"><span class="bg"></span>Party<span class="sub" style="color:#ffe27a">Leadership &amp; voice</span></h2>
         <p class="lede">Most of this I built inside organizations that already existed. Each card shows how the role grew and the one thing I made that wasn't there before.</p>
       </div>
-      <figure class="photo has" data-slot="leadership"><img src="img/leadership-wide.jpg" alt="Carson with Tennessee Junior Classical League members at the 2026 state convention" loading="lazy" decoding="async"></figure>
+      <figure class="photo has cutout" data-slot="leadership"><img src="img/cut-party.webp" alt="Carson on stage holding up a U.S. passport" loading="lazy" decoding="async"></figure>
     </div>
 
     <div class="party-grid">
@@ -551,6 +565,7 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
       </div>
 
       <div class="win member rv">
+        <div class="snaps"><img src="img/deca-1.jpg" alt="Carson with fellow DECA social media team members at the international conference" loading="lazy" decoding="async"><img src="img/deca-2.jpg" alt="The DECA media team at the international conference" loading="lazy" decoding="async"></div>
         <h3>DECA</h3>
         <div class="cls"><span>National Content Creator</span><span>Selected nationally</span></div>
         <div class="lvl"><span>Member '23</span><b>▸</b><span class="now">Creator · VP '25</span></div>
@@ -586,7 +601,31 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
         <div class="win rv"><div class="act"><b>Carson</b> ran the room</div><p>Facilitates BRIDGES town halls for 100+ students a semester.</p></div>
         <div class="win rv"><div class="act"><b>Carson</b> joined the Senate</div><p>One of 100 Coolidge Senators chosen from 4,000+ applicants.</p></div>
       </div>
-      <figure class="photo has" data-slot="speaking"><img src="img/speaking-sq.jpg" alt="Carson speaking at a BRIDGES event podium" loading="lazy" decoding="async"></figure>
+      <figure class="photo has cutout" data-slot="speaking"><img src="img/cut-speaking.webp" alt="Carson speaking into a microphone at a BRIDGES event" loading="lazy" decoding="async"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TROPHIES ============ -->
+<section id="trophies" class="section">
+  <div class="wrap">
+    <div class="troph-head"><h2 class="tag"><span class="bg"></span>Trophies<span class="sub">Awards &amp; honors</span></h2>
+    <figure class="photo has cutout" data-slot="awards"><img src="img/cut-awards.webp" alt="Carson holding his Princeton Prize in Race Relations certificate" loading="lazy" decoding="async"></figure></div>
+    <div class="trophy-sum rv"><div class="big">12</div><div style="font-weight:800;letter-spacing:.14em;font-size:12px;color:#a9b2bc">UNLOCKED</div><div class="bar"><i></i></div></div>
+
+    <div class="ach">
+      <div class="a rv"><div class="medal plat">★</div><div><h4>Coolidge Senator</h4><p>Calvin Coolidge Foundation · top 100 of 4,000+ applicants</p></div><div class="r">~2.5%<small>OF APPLICANTS</small></div></div>
+      <div class="a rv"><div class="medal plat">★</div><div><h4>U.S. Senate Youth Program</h4><p>First Alternate, Tennessee</p></div><div class="r">STATE<small>SELECTION</small></div></div>
+      <div class="a rv"><div class="medal">4×</div><div><h4>National Latin Exam Gold</h4><p>Four consecutive years, grades 8–11</p></div><div class="r">GOLD<small>2023–26</small></div></div>
+      <div class="a rv"><div class="medal">◆</div><div><h4>Cum Laude Society</h4><p>Top 10% of class by GPA</p></div><div class="r">2026</div></div>
+      <div class="a rv"><div class="medal">◆</div><div><h4>National Merit Semifinalist <span class="verify">verify</span></h4><p>From the one-page resume; confirm before publishing</p></div><div class="r">2026</div></div>
+      <div class="a rv"><div class="medal">✎</div><div><h4>UVA Book Award</h4><p>University of Virginia</p></div><div class="r">2026</div></div>
+      <div class="a rv"><div class="medal silver">✦</div><div><h4>Princeton Prize in Race Relations</h4><p>Certificate of Achievement</p></div><div class="r">2026</div></div>
+      <div class="a rv"><div class="medal silver">2×</div><div><h4>Outstanding Statesperson</h4><p>TN YMCA Youth in Government, plus Outstanding Bill</p></div><div class="r">YIG</div></div>
+      <div class="a rv"><div class="medal silver">◎</div><div><h4>Model UN</h4><p>Outstanding Delegate (American U.) · Honorable Mention (Vanderbilt)</p></div><div class="r">MUN</div></div>
+      <div class="a rv"><div class="medal silver">2×</div><div><h4>TMTA West Region, 2nd place</h4><p>Calculus (2026) · Algebra II (2024)</p></div><div class="r">MATH</div></div>
+      <div class="a rv"><div class="medal bronze">✒</div><div><h4>ACT-SO Regional</h4><p>Essay Finalist · Poetry Semifinalist</p></div><div class="r">2025</div></div>
+      <div class="a rv"><div class="medal bronze">♥</div><div><h4>President's Volunteer Service Award</h4><p>Recognized service hours</p></div><div class="r">2025</div></div>
     </div>
   </div>
 </section>
@@ -598,7 +637,7 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
     <div class="cover">
       <div class="panel hero-pic rv">
         <div class="issue">ISSUE #1</div>
-        <figure class="photo has" data-slot="media"><img src="img/media-wide.jpg" alt="Carson from behind in a Spider-Man suit at the track" loading="lazy" decoding="async"></figure>
+        <figure class="photo has cutout" data-slot="media"><img src="img/cut-media.webp" alt="Carson from behind in a Spider-Man suit" loading="lazy" decoding="async"></figure>
         <div class="pow">1M+<small>VIEWS</small></div>
       </div>
       <div class="panel rv">
@@ -640,7 +679,7 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
             <p>Gives campus tours at MUS and answers prospective families' questions about classes, programs, and what the school is actually like.</p></div>
         </div>
       </div>
-      <figure class="photo" data-slot="service"><div><b>Photo · Service</b>At a food distribution, HOBY, or a STEMsters event</div></figure>
+      <figure class="photo has cutout" data-slot="service"><img src="img/cut-service.webp" alt="Carson feeding a goat wearing tiny glasses" loading="lazy" decoding="async"></figure>
     </div>
   </div>
 </section>
@@ -665,7 +704,7 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
         </table>
         <p class="insert">CONTINUE? ▸ PRESS START</p>
       </div>
-      <figure class="photo has" data-slot="track"><img src="img/track-wide.jpg" alt="Carson in his MUS track singlet, flexing with racing spikes over his shoulders" loading="lazy" decoding="async"></figure>
+      <figure class="photo has cutout" data-slot="track"><img src="img/cut-track.webp" alt="Carson in his MUS track singlet, flexing with racing spikes over his shoulders" loading="lazy" decoding="async"></figure>
     </div>
   </div>
 </section>
