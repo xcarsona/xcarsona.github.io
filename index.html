@@ -274,6 +274,25 @@ img{max-width:100%;display:block}
   background:#ffe14d;clip-path:polygon(50% 0,60% 22%,84% 6%,78% 32%,100% 34%,82% 52%,98% 72%,72% 70%,74% 98%,54% 80%,36% 100%,32% 74%,4% 86%,18% 60%,0 40%,24% 34%,14% 8%,38% 22%);
   font-family:'Bangers',var(--display);font-size:34px;line-height:.9;color:#e8325a;-webkit-text-stroke:1.5px #111;transform:rotate(-8deg)}
 .pow small{display:block;font-size:16px;color:#111;-webkit-text-stroke:0}
+.trilogy{margin-top:34px}
+.trilogy .tt{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.trilogy .tt h3{font-family:'Bangers',var(--display);font-size:clamp(30px,3.4vw,44px);letter-spacing:.05em;color:#111;background:#fff;border:4px solid #111;box-shadow:6px 6px 0 #111;padding:2px 16px;transform:rotate(-2deg)}
+.trilogy .tt span{font:800 12px var(--body);letter-spacing:.2em;text-transform:uppercase;color:#111}
+.shelf{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.issue-cv{--c:#e8325a;position:relative;display:flex;flex-direction:column;min-height:400px;border:5px solid #111;box-shadow:8px 8px 0 #111;background:var(--c);color:#fff;overflow:hidden;text-decoration:none;transition:transform .15s}
+.issue-cv:nth-child(1){transform:rotate(-1.5deg)} .issue-cv:nth-child(2){transform:rotate(1deg);--c:#1f5fe0} .issue-cv:nth-child(3){transform:rotate(-.8deg);--c:#7b2ff2}
+.issue-cv:hover{transform:rotate(0) translateY(-8px)}
+.issue-cv::before{content:"";position:absolute;inset:0;background:radial-gradient(rgba(255,255,255,.18) 2px,transparent 2.4px) 0 0/12px 12px;pointer-events:none}
+.issue-cv .mast{display:flex;justify-content:space-between;align-items:center;background:#111;color:#ffe14d;font-family:'Bangers',var(--display);letter-spacing:.08em;font-size:18px;padding:6px 12px;position:relative}
+.issue-cv .vol{position:absolute;top:44px;right:12px;width:62px;height:62px;border-radius:50%;background:#ffe14d;color:#111;border:3px solid #111;display:grid;place-items:center;text-align:center;font-family:'Bangers',var(--display);font-size:13px;line-height:1;z-index:2}
+.issue-cv .vol b{display:block;font-size:26px;font-weight:400}
+.issue-cv h4{font-family:'Bangers',var(--display);font-weight:400;font-size:clamp(38px,4vw,54px);line-height:.9;letter-spacing:.03em;padding:22px 18px 0;margin-right:64px;-webkit-text-stroke:2px #111;paint-order:stroke fill;text-shadow:4px 4px 0 #111;position:relative}
+.issue-cv .burst{align-self:flex-start;margin:18px 0 0 14px;background:#ffe14d;color:#e8325a;font-family:'Bangers',var(--display);font-size:40px;line-height:.95;padding:30px 34px;clip-path:polygon(50% 0,60% 20%,84% 6%,78% 30%,100% 34%,82% 52%,98% 72%,72% 70%,74% 98%,54% 80%,36% 100%,32% 74%,4% 86%,18% 60%,0 40%,24% 34%,14% 8%,38% 22%);text-align:center;position:relative;-webkit-text-stroke:1px #111}
+.issue-cv .blurb .todo{color:#a10013;background:#ffe3e3}
+.issue-cv .burst small{display:block;font-size:16px;color:#111;-webkit-text-stroke:0}
+.issue-cv .blurb{margin:auto 14px 0;background:#fff8c4;color:#111;border:3px solid #111;padding:10px 12px;font-size:14px;line-height:1.45;position:relative}
+.issue-cv .foot{margin-top:12px;background:#111;color:#fff;font:800 11px var(--body);letter-spacing:.16em;text-transform:uppercase;padding:8px 12px;display:flex;justify-content:space-between;position:relative}
+@media (max-width:960px){.shelf{grid-template-columns:1fr}.issue-cv{min-height:330px}}
 .powers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
 .powers .panel h3{font-size:clamp(24px,2.4vw,32px)}
 .say{position:relative;background:#fff;border:3px solid #111;border-radius:22px;padding:10px 16px;font-weight:700;font-size:14.5px;margin-top:12px;color:#111}
@@ -680,6 +699,35 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
         <span class="cap">Meanwhile, in Memphis…</span>
         <h3>Room in the Inn</h3>
         <p>As media intern, made campaigns about the nonprofit's work housing people experiencing homelessness. Engagement rose 100–200% across Instagram, Facebook, and YouTube.</p>
+      </div>
+    </div>
+    <div class="trilogy">
+      <div class="tt"><h3>The Media Trilogy</h3><span>Collect all 3</span></div>
+      <div class="shelf">
+        <div class="issue-cv rv">
+          <div class="mast"><span>Carson Comics</span><span>#1</span></div>
+          <div class="vol">VOL<b>1</b></div>
+          <h4>Hero365</h4>
+          <div class="burst"><span class="todo" style="font-size:14px">stat?</span></div>
+          <div class="blurb"><span class="todo">Carson: one line on what Hero365 is and your role</span></div>
+          <div class="foot"><span>Series</span><span>Vol. 1 of 3</span></div>
+        </div>
+        <div class="issue-cv rv">
+          <div class="mast"><span>Carson Comics</span><span>#2</span></div>
+          <div class="vol">VOL<b>2</b></div>
+          <h4>80 Days<br>80 Dares</h4>
+          <div class="burst">80<small>DARES</small></div>
+          <div class="blurb"><span class="todo">Carson: one line on what the series is, plus views or a link</span></div>
+          <div class="foot"><span>Series</span><span>Vol. 2 of 3</span></div>
+        </div>
+        <div class="issue-cv rv">
+          <div class="mast"><span>Carson Comics</span><span>#3</span></div>
+          <div class="vol">VOL<b>3</b></div>
+          <h4>DECA</h4>
+          <div class="burst">1M+<small>VIEWS</small></div>
+          <div class="blurb">National Content Creator for DECA Inc. Short-form video for 200,000+ members across Instagram, TikTok, and DECA Direct: 1M+ views, 100K+ interactions.</div>
+          <div class="foot"><span>National</span><span>Vol. 3 of 3</span></div>
+        </div>
       </div>
     </div>
     <div class="powers">
