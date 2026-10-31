@@ -157,12 +157,15 @@ img{max-width:100%;display:block}
 #party{background:linear-gradient(180deg,#0b1a4a,#050b24);color:#fff}
 #party .tag{color:#fff}
 #party .tag .bg{background:var(--red)}
-.party-intro{display:grid;grid-template-columns:1fr 300px;gap:30px;align-items:end;margin-bottom:34px}
+.party-intro{display:grid;grid-template-columns:1fr 420px;gap:30px;align-items:end;margin-bottom:34px}
+.duo{display:grid;grid-template-columns:.42fr 1fr;align-items:end;gap:6px;height:300px}
+.duo .photo{height:100%;aspect-ratio:auto!important}
 .party-intro .photo{aspect-ratio:4/3;border:3px solid #dfe6ff;border-radius:10px;background:#0f2163;color:#aab8ff}
 .win{background:linear-gradient(180deg,#2340a8,#0f2163);border:3px solid #dfe6ff;border-radius:10px;box-shadow:inset 0 0 0 2px #0a1648,0 10px 24px rgba(0,0,0,.4);padding:20px 22px}
 .party-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px}
 .snaps{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:-4px -4px 14px}
 .snaps img{width:100%;aspect-ratio:4/3;object-fit:cover;border:2px solid #dfe6ff;border-radius:6px}
+.snaps img:nth-child(3):last-child{grid-column:1/-1;aspect-ratio:16/9}
 .snaps img:only-child{grid-column:1/-1;aspect-ratio:16/9}
 .member h3{font-family:var(--display);font-size:26px;letter-spacing:.02em;text-transform:uppercase;line-height:1.05}
 .member .cls{display:flex;justify-content:space-between;align-items:baseline;font:700 12px var(--body);letter-spacing:.16em;color:#ffe27a;text-transform:uppercase;margin:6px 0 10px}
@@ -200,7 +203,7 @@ img{max-width:100%;display:block}
 .a .r small{display:block;color:#79828c;font-weight:700;letter-spacing:.06em}
 
 /* party: battle log (speaking) */
-.battle{display:grid;grid-template-columns:1fr 320px;gap:18px;margin-top:34px;align-items:start}
+.battle{display:grid;grid-template-columns:1fr;gap:18px;margin-top:34px;align-items:start}
 .battle h3{grid-column:1/-1;font-family:var(--display);font-size:34px;text-transform:uppercase;letter-spacing:.02em;display:flex;align-items:center;gap:14px}
 .battle h3::after{content:"";flex:1;height:3px;background:#dfe6ff;opacity:.5}
 .blog{display:grid;gap:10px}
@@ -367,7 +370,7 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
       <figure class="ph cut" data-for="service"><img src="img/cut-service.webp" alt="" loading="lazy" decoding="async"></figure>
       <figure class="ph cut" data-for="records"><img src="img/cut-track.webp" alt="" loading="lazy" decoding="async"></figure>
       <figure class="ph cut" data-for="media"><img src="img/cut-media.webp" alt="" loading="lazy" decoding="async"></figure>
-      <figure class="ph cut" data-for="contact"><img src="img/cut-research.webp" alt="" loading="lazy" decoding="async"></figure>
+      <figure class="ph cut" data-for="contact"><img src="img/cut-guns.webp" alt="" loading="lazy" decoding="async"></figure>
     </div>
 
     <nav aria-label="Main menu">
@@ -533,7 +536,7 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
         <h2 class="tag"><span class="bg"></span>Party<span class="sub" style="color:#ffe27a">Leadership &amp; voice</span></h2>
         <p class="lede">Most of this I built inside organizations that already existed. Each card shows how the role grew and the one thing I made that wasn't there before.</p>
       </div>
-      <figure class="photo has cutout" data-slot="leadership"><img src="img/cut-party.webp" alt="Carson on stage holding up a U.S. passport" loading="lazy" decoding="async"></figure>
+      <div class="duo"><figure class="photo has cutout" data-slot="speaking"><img src="img/cut-speaking.webp" alt="Carson speaking into a microphone at a BRIDGES event" loading="lazy" decoding="async"></figure><figure class="photo has cutout" data-slot="leadership"><img src="img/cut-party.webp" alt="Carson on stage holding up a U.S. passport" loading="lazy" decoding="async"></figure></div>
     </div>
 
     <div class="party-grid">
@@ -565,7 +568,7 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
       </div>
 
       <div class="win member rv">
-        <div class="snaps"><img src="img/deca-1.jpg" alt="Carson with fellow DECA social media team members at the international conference" loading="lazy" decoding="async"><img src="img/deca-2.jpg" alt="The DECA media team at the international conference" loading="lazy" decoding="async"><img src="img/deca-3.jpg" style="object-position:50% 0" alt="Carson next to a statue holding a DECA teddy bear" loading="lazy" decoding="async"><img src="img/deca-4.jpg" alt="Carson pointing at the camera" loading="lazy" decoding="async"></div>
+        <div class="snaps"><img src="img/deca-1.jpg" alt="Carson with fellow DECA social media team members at the international conference" loading="lazy" decoding="async"><img src="img/deca-2.jpg" alt="The DECA media team at the international conference" loading="lazy" decoding="async"><img src="img/deca-3.jpg" style="object-position:50% 0" alt="Carson next to a statue holding a DECA teddy bear" loading="lazy" decoding="async"></div>
         <h3>DECA</h3>
         <div class="cls"><span>National Content Creator</span><span>Selected nationally</span></div>
         <div class="lvl"><span>Member '23</span><b>▸</b><span class="now">Creator · VP '25</span></div>
@@ -601,7 +604,6 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
         <div class="win rv"><div class="act"><b>Carson</b> ran the room</div><p>Facilitates BRIDGES town halls for 100+ students a semester.</p></div>
         <div class="win rv"><div class="act"><b>Carson</b> joined the Senate</div><p>One of 100 Coolidge Senators chosen from 4,000+ applicants.</p></div>
       </div>
-      <figure class="photo has cutout" data-slot="speaking"><img src="img/cut-speaking.webp" alt="Carson speaking into a microphone at a BRIDGES event" loading="lazy" decoding="async"></figure>
     </div>
   </div>
 </section>
