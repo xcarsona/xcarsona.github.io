@@ -69,7 +69,16 @@ img{max-width:100%;display:block}
 
 .stage{position:relative;z-index:4;flex:1;width:min(1180px,100%);margin:0 auto 34px;min-height:620px}
 .hero-photo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(250px,26vw,340px);aspect-ratio:3/4}
-.hero-photo::before{content:"";position:absolute;inset:4% 0 -4%;background:var(--black);clip-path:polygon(50% 0,62% 14%,82% 4%,80% 24%,100% 30%,86% 46%,100% 64%,80% 70%,84% 94%,62% 84%,50% 100%,38% 86%,16% 96%,20% 72%,0 64%,14% 48%,0 30%,20% 26%,16% 4%,38% 14%)}
+.hero-photo{isolation:isolate;--star:polygon(50% 0,62% 14%,82% 4%,80% 24%,100% 30%,86% 46%,100% 64%,80% 70%,84% 94%,62% 84%,50% 100%,38% 86%,16% 96%,20% 72%,0 64%,14% 48%,0 30%,20% 26%,16% 4%,38% 14%)}
+.hero-photo::before,.hero-photo::after{content:"";position:absolute;inset:4% 0 -4%;clip-path:var(--star)}
+.hero-photo::before{background:var(--black);z-index:-1}
+.hero-photo::after{background:#ffd21f;z-index:-2;transform:translate(9%,-5%) rotate(10deg) scale(1.02);animation:ystar 3.2s ease-in-out infinite}
+@keyframes ystar{0%,100%{transform:translate(9%,-5%) rotate(10deg) scale(1.02)}50%{transform:translate(11%,-6%) rotate(14deg) scale(1.05)}}
+.hero-photo.flash::before{animation:bflash .45s steps(1) 1}
+.hero-photo.flash::after{animation:yflash .45s cubic-bezier(.2,1.6,.4,1) 1}
+@keyframes bflash{0%{background:#ffd21f;transform:scale(1.08)}35%{background:#fff;transform:scale(1.04)}70%{background:var(--black);transform:none}}
+@keyframes yflash{0%{transform:translate(0,0) rotate(0) scale(.85);opacity:0}60%{transform:translate(12%,-7%) rotate(16deg) scale(1.12);opacity:1}100%{transform:translate(9%,-5%) rotate(10deg) scale(1.02)}}
+@media (prefers-reduced-motion:reduce){.hero-photo::after{animation:none}}
 .hero-photo .ph{position:absolute;inset:-6% -14% 0;opacity:0;transition:opacity .22s,transform .22s;transform:translateX(-12px) scale(.97)}
 .hero-photo .ph img{width:100%;height:100%;object-fit:contain;object-position:50% 100%;filter:drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff) drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff) drop-shadow(12px 10px 0 rgba(0,0,0,.85))}
 .hero-photo .ph.on{opacity:1;transform:none}
@@ -765,7 +774,9 @@ footer{background:var(--black);color:#8a8a8a;font-size:12px;padding:26px 6vw;tex
   // Command wheel: hover/focus swaps the center photo and the banner
   const items=[...document.querySelectorAll('.cmd')], phs=[...document.querySelectorAll('.hero-photo .ph')];
   const bt=document.getElementById('bn-t'), bs=document.getElementById('bn-s'); let idx=-1;
-  const show=k=>phs.forEach(p=>p.classList.toggle('on',p.dataset.for===k));
+  const hp=document.querySelector('.hero-photo'); let cur='default';
+  const show=k=>{if(k===cur)return;cur=k;phs.forEach(p=>p.classList.toggle('on',p.dataset.for===k));
+    hp.classList.remove('flash');void hp.offsetWidth;hp.classList.add('flash')};
   const sel=(i,focus)=>{idx=i;items.forEach((a,j)=>a.classList.toggle('on',j===i));const a=items[i];
     show(a.dataset.k);bt.textContent=a.dataset.t;bs.textContent=a.dataset.s;if(focus)a.focus({preventScroll:true})};
   items.forEach((a,i)=>{a.addEventListener('mouseenter',()=>sel(i));a.addEventListener('focus',()=>sel(i))});
